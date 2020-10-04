@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="湯瑪士的部落格">
 <meta property="og:description" content="Chennel之前有聊到 Chennel  但是當訊息量越來越大的時候 可以有一些機制來做傳遞與管理 在前端 Subscribe Channel  123456(async () =&amp;gt; &amp;#123;  let channel = socket.subscribe(&quot;foo&quot;);  for await (let data of channel) &amp;#123;    console.log(&quot;f">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-09-14T16:46:12.843Z">
+<meta property="og:updated_time" content="2020-09-20T08:55:30.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SocketCluster-Consumer">
 <meta name="twitter:description" content="Chennel之前有聊到 Chennel  但是當訊息量越來越大的時候 可以有一些機制來做傳遞與管理 在前端 Subscribe Channel  123456(async () =&amp;gt; &amp;#123;  let channel = socket.subscribe(&quot;foo&quot;);  for await (let data of channel) &amp;#123;    console.log(&quot;f">
@@ -423,6 +423,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> &#123;socket&#125; <span class="keyword">of</span> agServer.listener(<span class="string">'connection'</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    (<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      <span class="comment">// This will not work because the iterator is not yet created at this point.</span></span><br><span class="line">      <span class="keyword">let</span> fooStream = socket.receiver(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// If any messages arrive during this time, they will be ignored!</span></span><br><span class="line">      <span class="keyword">await</span> doSomethingWhichTakesAFewSeconds();</span><br><span class="line"></span><br><span class="line">      <span class="comment">// The iterator gets created (and starts buffering) here!</span></span><br><span class="line">      <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> data <span class="keyword">of</span> fooStream) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>Backend </p><p style="color: green;">Good</p><p></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> &#123;socket&#125; <span class="keyword">of</span> agServer.listener(<span class="string">'connection'</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    (<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">      <span class="comment">// This will create a consumable which will start buffering messages immediately.</span></span><br><span class="line">      <span class="keyword">let</span> fooStreamConsumable = socket.receiver(<span class="string">'foo'</span>).createConsumer();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">await</span> sleep();</span><br><span class="line"></span><br><span class="line">      <span class="comment">// This loop will start from the beginning of the buffer.</span></span><br><span class="line">      <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> data <span class="keyword">of</span> fooStreamConsumable) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"forawait -&gt; data"</span>, data)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>下一個章節再來繼續處理一下 <code>API</code> 相關問題</p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://socketcluster.io/docs/consumers/" target="_blank" rel="noopener">Consumer</a></p>
+
       
     </div>
     
@@ -480,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/15/React-Native-connect-server/" rel="prev" title="React-Native-connect-server">
-                React-Native-connect-server <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/11/Java-Spring-Boot-Initial/" rel="prev" title="Java-Spring-Boot-Initial">
+                Java-Spring-Boot-Initial <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,7 +565,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -573,7 +576,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -584,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -633,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chennel"><span class="nav-number">1.</span> <span class="nav-text">Chennel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Consumers"><span class="nav-number">2.</span> <span class="nav-text">Consumers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WritableConsumableStream"><span class="nav-number">2.1.</span> <span class="nav-text">WritableConsumableStream</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以自定義-socket-consumer"><span class="nav-number">2.2.</span> <span class="nav-text">可以自定義 socket consumer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以在執行之前做一些事情"><span class="nav-number">2.3.</span> <span class="nav-text">可以在執行之前做一些事情</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊情境"><span class="nav-number">2.3.1.</span> <span class="nav-text">特殊情境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#調整後"><span class="nav-number">2.3.2.</span> <span class="nav-text">調整後</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chennel"><span class="nav-number">1.</span> <span class="nav-text">Chennel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Consumers"><span class="nav-number">2.</span> <span class="nav-text">Consumers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WritableConsumableStream"><span class="nav-number">2.1.</span> <span class="nav-text">WritableConsumableStream</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以自定義-socket-consumer"><span class="nav-number">2.2.</span> <span class="nav-text">可以自定義 socket consumer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以在執行之前做一些事情"><span class="nav-number">2.3.</span> <span class="nav-text">可以在執行之前做一些事情</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊情境"><span class="nav-number">2.3.1.</span> <span class="nav-text">特殊情境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#調整後"><span class="nav-number">2.3.2.</span> <span class="nav-text">調整後</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考資料"><span class="nav-number">3.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
             
 
           </div>

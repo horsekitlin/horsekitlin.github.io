@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Nodejs,React,React Native,SocketCluster,">
+  <meta name="keywords" content="Nodejs,React,React Native,SocketCluster,ithome 12,">
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial Socket12345678import S">
-<meta name="keywords" content="Nodejs,React,React Native,SocketCluster">
+<meta name="description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial SocketApp.js 12345678i">
+<meta name="keywords" content="Nodejs,React,React Native,SocketCluster,ithome 12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React-Native-connect-server">
 <meta property="og:url" content="http://yoursite.com/2020/09/15/React-Native-connect-server/index.html">
 <meta property="og:site_name" content="湯瑪士的部落格">
-<meta property="og:description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial Socket12345678import S">
+<meta property="og:description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial SocketApp.js 12345678i">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-09-14T17:17:23.361Z">
+<meta property="og:updated_time" content="2020-09-20T08:55:30.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React-Native-connect-server">
-<meta name="twitter:description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial Socket12345678import S">
+<meta name="twitter:description" content="Initial React Native1$ npx react-native init imapp &amp;amp;&amp;amp; cd imapp Run on ios1$ npx react-native-run-ios Install SocketCluster Client1$ yarn add socketcluster-client Initial SocketApp.js 12345678i">
 
 
 
@@ -376,10 +376,12 @@
         <h1 id="Initial-React-Native"><a href="#Initial-React-Native" class="headerlink" title="Initial React Native"></a>Initial React Native</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-<span class="keyword">native</span> <span class="keyword">init</span> imapp &amp;&amp; cd imapp</span><br></pre></td></tr></table></figure>
 <h2 id="Run-on-ios"><a href="#Run-on-ios" class="headerlink" title="Run on ios"></a>Run on ios</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx react-native-<span class="keyword">run</span><span class="bash">-ios</span></span><br></pre></td></tr></table></figure>
 <h2 id="Install-SocketCluster-Client"><a href="#Install-SocketCluster-Client" class="headerlink" title="Install SocketCluster Client"></a>Install SocketCluster Client</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn <span class="keyword">add</span><span class="bash"> socketcluster-client</span></span><br></pre></td></tr></table></figure>
-<h2 id="Initial-Socket"><a href="#Initial-Socket" class="headerlink" title="Initial Socket"></a>Initial Socket</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SocketClusterClient <span class="keyword">from</span> <span class="string">'socketcluster-client'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> socket = SocketClusterClient.create(&#123;</span><br><span class="line">  hostname: <span class="string">'localhost'</span>,</span><br><span class="line">  port: <span class="number">8000</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.transmit(<span class="string">'foo'</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Initial-Socket"><a href="#Initial-Socket" class="headerlink" title="Initial Socket"></a>Initial Socket</h2><p>App.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SocketClusterClient <span class="keyword">from</span> <span class="string">'socketcluster-client'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> socket = SocketClusterClient.create(&#123;</span><br><span class="line">  hostname: <span class="string">'localhost'</span>,</span><br><span class="line">  port: <span class="number">8000</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket.transmit(<span class="string">'foo'</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
 <p>Server 可以收到 <code>data</code></p>
 <p>基本上已經可以確認接通了 SocketCluster Server 與 Client</p>
 <p>之後就可以準備其他事情</p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://github.com/SocketCluster/socketcluster-client" target="_blank" rel="noopener">socketcluster-Client</a></p>
 
       
     </div>
@@ -404,6 +406,8 @@
             <a href="/tags/React-Native/" rel="tag"># React Native</a>
           
             <a href="/tags/SocketCluster/" rel="tag"># SocketCluster</a>
+          
+            <a href="/tags/ithome-12/" rel="tag"># ithome 12</a>
           
         </div>
       
@@ -432,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/09/SocketCluster-Consumer/" rel="next" title="SocketCluster-Consumer">
-                <i class="fa fa-chevron-left"></i> SocketCluster-Consumer
+              <a href="/2020/09/11/Java-Spring-Boot-variable/" rel="next" title="Java-Spring-Boot-variable">
+                <i class="fa fa-chevron-left"></i> Java-Spring-Boot-variable
               </a>
             
           </div>
@@ -524,7 +528,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -535,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -546,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -595,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initial-React-Native"><span class="nav-number">1.</span> <span class="nav-text">Initial React Native</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-on-ios"><span class="nav-number">1.1.</span> <span class="nav-text">Run on ios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-SocketCluster-Client"><span class="nav-number">1.2.</span> <span class="nav-text">Install SocketCluster Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initial-Socket"><span class="nav-number">1.3.</span> <span class="nav-text">Initial Socket</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initial-React-Native"><span class="nav-number">1.</span> <span class="nav-text">Initial React Native</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-on-ios"><span class="nav-number">1.1.</span> <span class="nav-text">Run on ios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-SocketCluster-Client"><span class="nav-number">1.2.</span> <span class="nav-text">Install SocketCluster Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initial-Socket"><span class="nav-number">1.3.</span> <span class="nav-text">Initial Socket</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考資料"><span class="nav-number">2.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
             
 
           </div>
