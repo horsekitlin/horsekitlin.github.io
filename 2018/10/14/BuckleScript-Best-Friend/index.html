@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tomas Lin" />
+
+
+
+<meta name="description" content="BuckleScriptOCamlBuckleScript 的基礎 如果需要對 OCaml 有興趣可以參考 官方文件 如果對 Reason 有興趣可以參考 官方文件 ReasonOCaml 的另一種語法，對 Javascript 的開發者比較親切 OPAM官方的套件管理， 自從 BuckleScript 支援 NPM&#x2F;YARN 之後就不需要使用他了 External&#x2F;Inter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BuckleScript-Best-Friend">
+<meta property="og:url" content="https://horsekitlin.github.io/2018/10/14/BuckleScript-Best-Friend/index.html">
+<meta property="og:site_name" content="湯瑪士的部落格">
+<meta property="og:description" content="BuckleScriptOCamlBuckleScript 的基礎 如果需要對 OCaml 有興趣可以參考 官方文件 如果對 Reason 有興趣可以參考 官方文件 ReasonOCaml 的另一種語法，對 Javascript 的開發者比較親切 OPAM官方的套件管理， 自從 BuckleScript 支援 NPM&#x2F;YARN 之後就不需要使用他了 External&#x2F;Inter">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2018-10-14T15:16:34.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:40:45.581Z">
+<meta property="article:author" content="Tomas Lin">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="IThome2018">
+<meta property="article:tag" content="Reason">
+<meta property="article:tag" content="BuckleScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="湯瑪士的部落格" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>BuckleScript-Best-Friend | 湯瑪士的部落格</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主頁</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">標籤</a></li>
+                        
+                            <li><a href="/about/">關於我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPatten/" rel="tag">DesignPatten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FunctionPrograming/" rel="tag">FunctionPrograming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2023/" rel="tag">IThome2023</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MessageQueue/" rel="tag">MessageQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microservies/" rel="tag">Microservies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SocketCluster/" rel="tag">SocketCluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sodility/" rel="tag">Sodility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Truffle/" rel="tag">Truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ithome-12/" rel="tag">ithome 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/" rel="tag">spring-boot</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主頁</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">標籤</a></li>
+                
+                    <li><a href="/about/">關於我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-BuckleScript-Best-Friend" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/14/BuckleScript-Best-Friend/" class="article-date">
+      <time datetime="2018-10-14T15:16:34.000Z" itemprop="datePublished">2018-10-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BuckleScript-Best-Friend
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Reason/">Reason</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="BuckleScript"><a href="#BuckleScript" class="headerlink" title="BuckleScript"></a>BuckleScript</h1><h2 id="OCaml"><a href="#OCaml" class="headerlink" title="OCaml"></a>OCaml</h2><p><code>BuckleScript</code> 的基礎</p>
+<p>如果需要對 OCaml 有興趣可以參考 <a target="_blank" rel="noopener" href="https://realworldocaml.org/">官方文件</a></p>
+<p>如果對 Reason 有興趣可以參考 <a target="_blank" rel="noopener" href="https://reasonml.github.io/">官方文件</a></p>
+<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>OCaml 的另一種語法，對 <code>Javascript</code> 的開發者比較親切</p>
+<h2 id="OPAM"><a href="#OPAM" class="headerlink" title="OPAM"></a>OPAM</h2><p>官方的套件管理， 自從 <code>BuckleScript</code> 支援 NPM&#x2F;YARN 之後就不需要使用他了</p>
+<h2 id="External-Interop-FFI"><a href="#External-Interop-FFI" class="headerlink" title="External&#x2F;Interop&#x2F;FFI"></a>External&#x2F;Interop&#x2F;FFI</h2><p>都是 <code>BuckleScript &lt;-&gt; JavaScript</code> 交互編譯的術語</p>
+<ul>
+<li>External - 在 <code>BuckleScript</code> 中使用 JS 值得一種方式</li>
+<li>Interop - interoperability 的縮寫</li>
+<li>FFI - <code>Foreign Function Interface</code> 的縮寫, “external”, “wrapper” 和 “interop” 的通用術語, 基本上就是在一個語言中呼叫另一個語言的值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>bs</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>val</td>
+<td>[@bs.val]</td>
+<td>global value</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>[@bs.scope]</td>
+<td>use names as a namespace</td>
+</tr>
+<tr>
+<td>new</td>
+<td>[@bs.new]</td>
+<td>new constructor</td>
+</tr>
+<tr>
+<td>module</td>
+<td>[@bs.module]</td>
+<td>從某一個 mobule 綁定其中一個值</td>
+</tr>
+<tr>
+<td>send</td>
+<td>@bs.send</td>
+<td>function chaining</td>
+</tr>
+<tr>
+<td>send.pipe</td>
+<td>@bs.send.pipe</td>
+<td>function chaining includes parameters</td>
+</tr>
+<tr>
+<td>splice</td>
+<td>[@bs.splice]</td>
+<td>具有不定長度參數的函式</td>
+</tr>
+</tbody></table>
+<p><strong>note:這只是一小部分</strong></p>
+<h3 id="使用場景"><a href="#使用場景" class="headerlink" title="使用場景"></a>使用場景</h3><ul>
+<li>在 <code>Reason</code> 中直接寫 Javascript</li>
+<li>引用 js lib 使用 (global, default, other libs)</li>
+<li>使用現有 <code>Bucklescript</code> 所提供的lib</li>
+</ul>
+<h3 id="原生-Javascript"><a href="#原生-Javascript" class="headerlink" title="原生 Javascript"></a>原生 Javascript</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[%%raw &quot;var a = 1, b = 2&quot;];</span><br><span class="line">let add = [%raw &quot;a + b&quot;];</span><br><span class="line">let myFunction = [%raw &quot;(a, b) =&gt;  a + b&quot;]</span><br><span class="line">Js.log(myFunction(1)(2));</span><br></pre></td></tr></table></figure>
+
+<h3 id="字串-Unicode-和-template-string"><a href="#字串-Unicode-和-template-string" class="headerlink" title="字串 Unicode 和 template string"></a>字串 Unicode 和 template string</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Js.log(&#123;js|你好，</span><br><span class="line">世界|js&#125;);</span><br><span class="line"></span><br><span class="line">let world = &quot;world&quot;;</span><br><span class="line">let helloWorld = &#123;j|hello, $world|j&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="全域變數"><a href="#全域變數" class="headerlink" title="全域變數"></a>全域變數</h3><p><strong>note: 先看看官方是否有先幫你完成的 <a target="_blank" rel="noopener" href="https://reasonml.github.io/api/index.html">API</a> 再決定是否要自己處理</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[@bs.val] external setTimeout/* 在 Reason 中使用的模組名稱 */: (unit =&gt; unit, int) =&gt; float = &quot;setTimeout&quot;;/* 對應到 Javascript 中的模組名稱 */</span><br><span class="line"></span><br><span class="line">let eventId = setTimeout(() =&gt; Js.log(&quot;hello setTimeout&quot;), 1000);</span><br><span class="line">Js.log(eventId);</span><br></pre></td></tr></table></figure>
+
+<h3 id="function-chaining"><a href="#function-chaining" class="headerlink" title="function chaining"></a>function chaining</h3><p>亦或是利用 <code>map</code> 和 <code>filter</code> 做一些陣列處理的時候</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[@bs.send] external map: (array(&#x27;a), &#x27;a =&gt; &#x27;b) =&gt; array(&#x27;b) = &quot;&quot;;</span><br><span class="line">[@bs.send] external filter: (array(&#x27;a), &#x27;a =&gt; &#x27;b) =&gt; array(&#x27;b) = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">let mapResult = map([|1, 2, 3|], a =&gt; a + 1);</span><br><span class="line">let result = filter(mapResult, a =&gt; a mod 2 === 0);</span><br><span class="line">Js.log(result);</span><br></pre></td></tr></table></figure>
+
+<p>上面的範例 <code>map</code> 和 <code>filter</code> 為什麼要使用 <code>send</code> 呢？</p>
+<p>也有另外一個比較漂亮的做法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[@bs.send] external map: (array(&#x27;a), &#x27;a =&gt; &#x27;b) =&gt; array(&#x27;b) = &quot;&quot;;</span><br><span class="line">[@bs.send] external filter: (array(&#x27;a), &#x27;a =&gt; &#x27;b) =&gt; array(&#x27;b) = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">[|1, 2, 3|]</span><br><span class="line">-&gt;map(a =&gt; a+1)</span><br><span class="line">-&gt;filter(a =&gt; a mod 2 === 0)</span><br><span class="line">-&gt;Js.log</span><br></pre></td></tr></table></figure>
+
+<p>但是這部分之後再探討</p>
+<h3 id="全域模組"><a href="#全域模組" class="headerlink" title="全域模組"></a>全域模組</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[@bs.val] [@bs.scope &quot;Math&quot;] external random: unit =&gt; float = &quot;random&quot;;</span><br><span class="line">let someNumber = random();</span><br><span class="line">/**/</span><br><span class="line"></span><br><span class="line">/* front end demo */</span><br><span class="line">[@bs.val] [@bs.scope (&quot;window&quot;, &quot;location&quot;, &quot;ancestorOrigins&quot;)] external length: int = &quot;length&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可空值"><a href="#可空值" class="headerlink" title="可空值"></a>可空值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = Some(5);</span><br><span class="line">let b = None;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let JsNullable = Js.Nullable.null;</span><br><span class="line">let JsUndefined = Js.Nullable.undefined;</span><br><span class="line"></span><br><span class="line">let result1: Js.Nullable.t(string) = Js.Nullable.return(&quot;hello&quot;); /* hello */</span><br><span class="line">let result2: Js.Nullable.t(int) = Js.Nullable.fromOption(Some(10)); /* 10 */</span><br><span class="line">let result3: option(int) = Js.Nullable.toOption(Js.Nullable.return(10)); /* 10 */</span><br></pre></td></tr></table></figure>
+
+<p>這一部份在後續章節也會做更詳細的討論</p>
+<h4 id="模組"><a href="#模組" class="headerlink" title="模組"></a>模組</h4><h5 id="預設輸出-ES6"><a href="#預設輸出-ES6" class="headerlink" title="預設輸出 ES6"></a>預設輸出 ES6</h5><p>LeftPad.re</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let default = (name: string, age: int) =&gt; Js.log(&#123;j|$name 年紀 $age|j&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="Import-Module"><a href="#Import-Module" class="headerlink" title="Import Module"></a>Import Module</h5><p>ImportModule.re</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[@bs.module &quot;./LeftPad.bs&quot;] external leftPad : (string, int) =&gt; string = &quot;default&quot;;</span><br><span class="line"></span><br><span class="line">leftPad(&quot;hello&quot;, 123);</span><br></pre></td></tr></table></figure>
+
+<p>因為 <code>bsconfig.js</code> 中的 <code>suffix</code> 設定為 <code>.bs.js</code></p>
+<p>所以當我們要 import 的時候需要加上 .bs</p>
+<p>他編譯後的結果會是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">LeftPadBs</span> = <span class="built_in">require</span>(<span class="string">&quot;./LeftPad.bs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">LeftPadBs</span>.<span class="title function_">default</span>(<span class="string">&quot;hello&quot;</span>, <span class="number">123</span>);</span><br></pre></td></tr></table></figure>
+
+<p>否則會找不到這個檔案</p>
+<h5 id="Global-Module"><a href="#Global-Module" class="headerlink" title="Global Module"></a>Global Module</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[@bs.module &quot;path&quot;] external dirname: string =&gt; string = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">Js.log(dirname(&quot;/foo/bar/baz/asdf/quux&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Path</span> = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Path</span>.<span class="title function_">dirname</span>(<span class="string">&quot;/foo/bar/baz/asdf/quux&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><code>@bs.module</code> 會將模組引入</p>
+<p><code>external</code> 則是指定輸出的名稱 (在<code>Reason</code> 使用的名稱)</p>
+<p>最後則是要引入的名稱，但是如果同名則可以設為空字串</p>
+<h4 id="參數長度可變"><a href="#參數長度可變" class="headerlink" title="參數長度可變"></a>參數長度可變</h4><p>使用 module <code>path</code> 中的 <code>join</code> 來做 demo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[@bs.module &quot;path&quot;] [@bs.splice]</span><br><span class="line">external join : array(string) =&gt; string = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">Js.log(join([|&quot;/&quot;, &quot;hello&quot;, &quot;/&quot;, &quot;world&quot;|]));</span><br></pre></td></tr></table></figure>
+
+<p><code>bs.module</code> 先指定來源 <code>path</code></p>
+<p>再加上 <code>bs.splice</code> 來告訴 <code>Reason</code> 他是一個具有不固定長度參數的 function</p>
+<p>利用 <code>array</code> 的 長度是彈性的優點來做彈性的多參數處理</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2018-10-14, 23:16:34</p>
+        <p><span>最后更新:</span>2024-07-26, 00:40:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/14/BuckleScript-Best-Friend/" title="BuckleScript-Best-Friend">https://horsekitlin.github.io/2018/10/14/BuckleScript-Best-Friend/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://horsekitlin.github.io/2018/10/14/BuckleScript-Best-Friend/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/10/19/BuckleScript-Object/">
+                    BuckleScript-Object
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/11/Reason-BasicTypeIII/">
+                    Reason-BasicTypeIII
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BuckleScript"><span class="toc-number">1.</span> <span class="toc-text">BuckleScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OCaml"><span class="toc-number">1.1.</span> <span class="toc-text">OCaml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reason"><span class="toc-number">1.2.</span> <span class="toc-text">Reason</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OPAM"><span class="toc-number">1.3.</span> <span class="toc-text">OPAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#External-Interop-FFI"><span class="toc-number">1.4.</span> <span class="toc-text">External&#x2F;Interop&#x2F;FFI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A0%B4%E6%99%AF"><span class="toc-number">1.4.1.</span> <span class="toc-text">使用場景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F-Javascript"><span class="toc-number">1.4.2.</span> <span class="toc-text">原生 Javascript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2-Unicode-%E5%92%8C-template-string"><span class="toc-number">1.4.3.</span> <span class="toc-text">字串 Unicode 和 template string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%9F%9F%E8%AE%8A%E6%95%B8"><span class="toc-number">1.4.4.</span> <span class="toc-text">全域變數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function-chaining"><span class="toc-number">1.4.5.</span> <span class="toc-text">function chaining</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%9F%9F%E6%A8%A1%E7%B5%84"><span class="toc-number">1.4.6.</span> <span class="toc-text">全域模組</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E7%A9%BA%E5%80%BC"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">可空值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B5%84"><span class="toc-number">1.4.6.2.</span> <span class="toc-text">模組</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A0%90%E8%A8%AD%E8%BC%B8%E5%87%BA-ES6"><span class="toc-number">1.4.6.2.1.</span> <span class="toc-text">預設輸出 ES6</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Import-Module"><span class="toc-number">1.4.6.2.2.</span> <span class="toc-text">Import Module</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Global-Module"><span class="toc-number">1.4.6.2.3.</span> <span class="toc-text">Global Module</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E6%95%B8%E9%95%B7%E5%BA%A6%E5%8F%AF%E8%AE%8A"><span class="toc-number">1.4.6.3.</span> <span class="toc-text">參數長度可變</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <!-- <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div> -->
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"BuckleScript-Best-Friend　| 湯瑪士的部落格　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/10/19/BuckleScript-Object/" title="上一篇: BuckleScript-Object">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/11/Reason-BasicTypeIII/" title="下一篇: Reason-BasicTypeIII">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/10/01/Day-06-Deploy-https-website/">Day-06-Deploy-https-website-part01</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/20/Day-05-ingress-controller/">Day-05-ingress-controller</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/19/Day-04-Deploy-to-cluster/">Day-04-Deploy-to-cluster</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/18/Day-03-Static-Site-Container/">Day-03-Container</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-02-Express%E8%88%87Docker/">Day-02-Express與Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-01-Docker%E7%B0%A1%E4%BB%8B/">Day-01-Docker簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/26/ReactNative-fastlane-Android/">React Native-fastlane-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/React-Native-Fastlane-IOS/">React-Native-Fastlane-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/09/React-create-rxdb-example/">React-create-rxdb-example</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartII/">React-Native-Cache-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartI/">React Native Cache PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-Android/">React-Native-Notification-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-IOS/">React-Native-Notification-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/22/Socketcluster-client-AuthorizationEngine/">Socketcluster-client-AuthorizationEngine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-scc/">SocketCluster-scc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-Storage/">SociekCluster-Storage</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/18/Redux-Part-III/">Redux-Part-III</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/17/Redux-Part-II/">Redux-Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/Redux-Part-I/">Redux-Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-Navigation/">React-Native-Navigation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-connect-server/">React-Native-connect-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-variable/">Java-Spring-Boot-variable</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-Initial/">Java-Spring-Boot-Initial</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Consumer/">SocketCluster-Consumer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/Socketcluster-Cluster-initial/">SocketCluster Cluster initial.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Authorization/">SocketCluster-Authorization</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/Moleculer-Start/">Moleculer-Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/24/RN-Platform/">React Native-Platform</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/07/Truffle-pet-user-interface/">Truffle-pet-user-interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/RN-JestInReactNative/">RN-JestInReactNative</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/RN-code-push/">RN-code-push</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/29/material-ui-themes/">material-ui-themes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/ReasonReact-lifeCycle/">ReasonReact-LifeCycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/ReasonReact-auto-deploy/">ReasonReact-auto-deploy</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/ReasonReact-publish-package/">ReasonReact-publish-package</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII-1/">ReasonReact-Todo-Tutorial-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII/">ReasonReact-Todo-Tutorial-PartIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartI/">ReasonReact-Todo-Tutorial-PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/Reason-ExternalPromiseAPI/">Reason-ExternalPromiseAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Component/">ReasonReact-Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Helloworld/">ReasonReact-Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartII/">Reason-Create-NPM-Package-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartI/">Reason Create NPM Package Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/29/BuckleScript-Function/">BuckleScript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/Express-MongoDB-PartII/">Express-MongoDB-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-MongoDB/">Express-MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-Middleware/">Express-Middleware</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Reason-BasicType-Module/">Reason-BasicType-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/26/Express-Router/">Express-Router</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/21/Express-helloworld-API/">Express-helloworld-API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">BasicType-OptionsAndSomeAndNone</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/Reason-BasicTypeIII/">Reason-BasicTypeIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/Reason-BasicTypeII/">Reason-BasicType Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Reason-BasicType/">Reason-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/Reason%E7%B0%A1%E4%BB%8B%E8%88%87Helloworld/">Reason簡介與Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Truffle-pet-demo/">truffle pet demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Javascript-HighOrderFunction/">Javascript-High Order Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Redux-compose/">Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/RN-JestErrorWithRNRouterFlux/">React Native import Image Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/Typescript-JSX/">Typescript-JSX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/TypeScript-Generic/">TypeScript-Generic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/Typescript-Function/">Typescript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/Typescript-Classes/">Typescript-Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/Typescript-Interfaces/">Typescript-Interfaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/Leetcode-Q8/">Leetcode-Q8</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/Typescript-BasicType/">Typescript-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/TypeScript-ReactAndWebpack/">TypeScript-ReactAndWebpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Typescript-MigratingFromJavascript/">Typescript-Migrating from Javascript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/Typescript-Gulp/">TypeScriptWithGulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/Typescript-TypescriptIn5Minutes/">TypeScript-TypeScriptIn5Minutes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/Leetcode-Q7/">Leedcode-Q7</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/NPM-Publish-With-Gulp/">NPM publish with gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/ReactUnitestWithJest/">ReactUnitestWithJest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/Python-Decorator/">Python-Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/Debugging-Nodejs-With-VSCode/">Debugging-Nodejs-With-VSCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/31/NodeDesignPatten-06/">NodeDesignPatten-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/RabbitMQ-Routing/">RabbitMQ-Routing</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/RabbitMQ-PublishAndSubscribe/">RabbitMQ-PublishAndSubscribe</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/24/RabbitMQ-WorkQueue/">RabbitMQ-WorkQueue</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/RabbitMQ-Install/">RabbitMQ-Install</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q6/">Leetcode-Q6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q5/">Leetcode-Q5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/Leetcode-Q4/">Leetcode-Q4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/Leetcode-Q3/">Leetcode-Q3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/Leetcode-Q2/">Leetcode-Q2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/Leetcode-Q1/">Leetcode-Q1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/29/NodeDesignPatten-01/">NodeDesignPatten-01</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2024 Tomas Lin
+            </div>
+            <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tomas Lin" />
+
+
+
+<meta name="description" content="Bukle Script ObjectJavascript 中的物件有兩個主要的目的  像是一個雜湊表(或是字典)， Keys 可以動態的 新增&#x2F;刪除 ，值是同樣的型態 像是一個紀錄(Record)，欄位是固定的(但是也允許是選擇性的)，他的值可以是不同的形態  這部分 BuckleScript 的物件也是一樣的 雜湊表模式直到最近 Javascript 才終於有正確的支援 Map 物件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BuckleScript-Object">
+<meta property="og:url" content="https://horsekitlin.github.io/2018/10/19/BuckleScript-Object/index.html">
+<meta property="og:site_name" content="湯瑪士的部落格">
+<meta property="og:description" content="Bukle Script ObjectJavascript 中的物件有兩個主要的目的  像是一個雜湊表(或是字典)， Keys 可以動態的 新增&#x2F;刪除 ，值是同樣的型態 像是一個紀錄(Record)，欄位是固定的(但是也允許是選擇性的)，他的值可以是不同的形態  這部分 BuckleScript 的物件也是一樣的 雜湊表模式直到最近 Javascript 才終於有正確的支援 Map 物件">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2018-10-19T07:49:47.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:40:45.581Z">
+<meta property="article:author" content="Tomas Lin">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="IThome2018">
+<meta property="article:tag" content="Reason">
+<meta property="article:tag" content="BuckleScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="湯瑪士的部落格" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>BuckleScript-Object | 湯瑪士的部落格</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主頁</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">標籤</a></li>
+                        
+                            <li><a href="/about/">關於我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPatten/" rel="tag">DesignPatten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FunctionPrograming/" rel="tag">FunctionPrograming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2023/" rel="tag">IThome2023</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MessageQueue/" rel="tag">MessageQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microservies/" rel="tag">Microservies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SocketCluster/" rel="tag">SocketCluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sodility/" rel="tag">Sodility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Truffle/" rel="tag">Truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ithome-12/" rel="tag">ithome 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/" rel="tag">spring-boot</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主頁</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">標籤</a></li>
+                
+                    <li><a href="/about/">關於我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-BuckleScript-Object" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/19/BuckleScript-Object/" class="article-date">
+      <time datetime="2018-10-19T07:49:47.000Z" itemprop="datePublished">2018-10-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BuckleScript-Object
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Reason/">Reason</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Bukle-Script-Object"><a href="#Bukle-Script-Object" class="headerlink" title="Bukle Script Object"></a>Bukle Script Object</h1><p>Javascript 中的物件有兩個主要的目的</p>
+<ul>
+<li>像是一個雜湊表(或是字典)， Keys 可以動態的 新增&#x2F;刪除 ，值是同樣的型態</li>
+<li>像是一個紀錄(Record)，欄位是固定的(但是也允許是選擇性的)，他的值可以是不同的形態</li>
+</ul>
+<p>這部分 BuckleScript 的物件也是一樣的</p>
+<h2 id="雜湊表模式"><a href="#雜湊表模式" class="headerlink" title="雜湊表模式"></a>雜湊表模式</h2><p>直到最近 <code>Javascript</code> 才終於有正確的支援 <code>Map</code></p>
+<p>物件使用上和 <code>Map</code> 可以是一樣的</p>
+<p>前提是</p>
+<ul>
+<li>可能會或是不會 新增&#x2F;刪除 參數的鰎值</li>
+<li>值可以被 動態&#x2F;計算 鍵值 瀏覽</li>
+<li>值得型態都是一樣</li>
+</ul>
+<p>這時候可以利用 <code>Js.Dict</code>  來綁定這個 Javascript 物件</p>
+<p>你可以就像 Javascript 中的 Object 來做操作</p>
+<p><code>Js.Dict.keys</code> 來取得所有的鍵值</p>
+<p><code>Js.Divt.values</code> 來取得所有的值</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let myMap = Js.Dict.empty();</span><br><span class="line"></span><br><span class="line">Js.Dict.set(myMap, &quot;Allison&quot;, 10);</span><br><span class="line"></span><br><span class="line">[@bs.val] external studentAge: Js.Dict.t(int) = &quot;student&quot;;</span><br><span class="line"></span><br><span class="line">switch (Js.Dict.get(studentAge, &quot;Joe&quot;)) &#123;</span><br><span class="line">| None =&gt; Js.log(&quot;Joe can&#x27;t be found&quot;)</span><br><span class="line">| Some(age) =&gt; Js.log(&quot;Joe is &quot; ++ string_of_int(age));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>轉譯後的結果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myMap = &#123; &#125;;</span><br><span class="line"></span><br><span class="line">myMap[<span class="string">&quot;Allison&quot;</span>] = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> match = student[<span class="string">&quot;Joe&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (match !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Joe is &quot;</span> + <span class="title class_">String</span>(match));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Joe can&#x27;t be found&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以看到其實 <code>Js.Dict</code> 是基於 Javascript 的物件</p>
+<p>整個 API 都沒有使用到 <code>external</code> 所以在編譯之後 整個 API 都會消失</p>
+<p>編譯結果中你也找不到 <code>Dict</code> 的相關字</p>
+<p>這很便於你將 Js 檔案轉為 BuckleScript 檔案</p>
+<h3 id="Record-模式"><a href="#Record-模式" class="headerlink" title="Record 模式"></a>Record 模式</h3><p>如果你的 Js 物件:</p>
+<ul>
+<li>有固定並且已知的欄位</li>
+<li>包含的值有不同的型別</li>
+</ul>
+<p>這時候大多數的程式語言中 你都可以使用 <code>Record</code></p>
+<h4 id="例如"><a href="#例如" class="headerlink" title="例如:"></a>例如:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;John&quot;</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="string">&quot;Allison&quot;</span>: <span class="number">20</span>,</span><br><span class="line">  <span class="string">&quot;Jimmy&quot;</span>: <span class="number">15</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">job</span>: <span class="string">&quot;CEO&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>的不同</p>
+<p>前者會使用 <code>雜湊表</code> 的型態來處理</p>
+<p>後者會使用 <code>Record</code> 來處理</p>
+<p>而在 BuckleScript 中要使用 <code>bs.deriving abstract</code> 功能</p>
+<p>後者則會這樣寫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type person = &#123;</span><br><span class="line">  name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">[@bs.val] external john: person = &quot;john&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>note</strong> <code>person</code> 並不是一個 <code>Record</code> 的型別</p>
+<p>他只是看起來像是 <code>Record</code> 的型別</p>
+<p>而且可以使用 <code>Record</code> 的形態檢查</p>
+<p><code>bs.deriving abstract</code> 就是在註解將 <code>person</code> 轉為 抽象型別</p>
+<h5 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h5><p>上述的抽象型別因為不是 <code>Record</code> 型別</p>
+<p>所以不能直接使用型態的方式來建立</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type person = &#123;</span><br><span class="line">  name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let joe = person(~name=&quot;Joe&quot;, ~age=20, ~job=&quot;teacher&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>轉譯後的結果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generated by BUCKLESCRIPT VERSION 4.0.5, PLEASE EDIT WITH CARE</span></span><br><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> joe = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Joe&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">20</span>,</span><br><span class="line">  <span class="attr">job</span>: <span class="string">&quot;teacher&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">joe</span> = joe;</span><br><span class="line"><span class="comment">/* No side effect */</span></span><br></pre></td></tr></table></figure>
+
+<p>結果對於運行並不會有成本</p>
+<h5 id="欄位重新命名"><a href="#欄位重新命名" class="headerlink" title="欄位重新命名"></a>欄位重新命名</h5><p>有時候在綁定 JS object 的時候，欄位名稱在 BuckleScript&#x2F;Reason 中是無效的名稱</p>
+<p>有兩種範例 一個是 <code>&#123;type: &quot;foo&quot;&#125;</code> (BS&#x2F;Reason 中的保留字) 和 <code>&#123;&quot;aria-checked&quot;: true&#125;</code></p>
+<p>可以選擇另一個有效的名稱 使用 <code>@bs.as</code> 來規避這個問題</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type data = &#123;</span><br><span class="line">  [@bs.as &quot;type&quot;] type_: string,</span><br><span class="line">  [@bs.as &quot;aria-checked&quot;] ariaLabel: string</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let d = data(~type_=&quot;message&quot;, ~ariaLabel=&quot;hello&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>輸出會是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;message&quot;</span>,</span><br><span class="line">  <span class="string">&quot;aria-checked&quot;</span>: <span class="string">&quot;hello&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h6 id="可選的標籤"><a href="#可選的標籤" class="headerlink" title="可選的標籤"></a>可選的標籤</h6><p>可以建立可忽略的 欄位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[@bs.deriving abstract]</span><br><span class="line">type person = &#123;</span><br><span class="line">  [@bs.optional] name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let joe = person(~age=19, ~job=&quot;sleep&quot;, ());</span><br><span class="line">Js.log(joe);</span><br></pre></td></tr></table></figure>
+
+<p>編譯後會是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Js</span>_primitive = <span class="built_in">require</span>(<span class="string">&quot;bs-platform/lib/js/js_primitive.js&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">joe</span>(<span class="params">param</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">function</span> (<span class="params">param$1</span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> prim = param;</span><br><span class="line">      <span class="keyword">var</span> prim$1 = <span class="number">19</span>;</span><br><span class="line">      <span class="keyword">var</span> prim$2 = <span class="string">&quot;sleep&quot;</span>;</span><br><span class="line">      <span class="keyword">var</span> tmp = &#123;</span><br><span class="line">        <span class="attr">age</span>: prim$1,</span><br><span class="line">        <span class="attr">job</span>: prim$2</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">if</span> (prim !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        tmp.<span class="property">name</span> = <span class="title class_">Js</span>_primitive.<span class="title function_">valFromOption</span>(prim);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(joe);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 <code>name</code> 會是可選的，若是沒有也不會造成錯誤</p>
+<p><strong>note:bs.optional 只是將  name 改為可選，但是如果輸入 Option(string) 不會有作用</strong></p>
+<h5 id="Accessors"><a href="#Accessors" class="headerlink" title="Accessors"></a>Accessors</h5><p>當你使用 <code>bs.deriving abstract</code> 隱含了 recode 的型態，你無法使用 <code>joe.age</code> 這樣的方式來取得值</p>
+<p>原生會提供 <code>getter</code> 和 <code>setter</code> 來完成這個</p>
+<h6 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h6><p>每一個 <code>bs.deriving abstract</code> 欄位 都會有一個 <code>getter function</code> </p>
+<p>在上面的範例中會有三個 <code>getter function</code> ，<code>nameGet</code>, <code>ageGet</code>, <code>jobGet</code></p>
+<p>他們會取得 <code>person</code> 的值並分別回傳 <code>string</code>, <code>int</code>, <code>string</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type person = &#123;</span><br><span class="line">  [@bs.optional] name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let joe = person(~age=20, ~job=&quot;teacher&quot;, ());</span><br><span class="line"></span><br><span class="line">let twenty = ageGet(joe);</span><br><span class="line">Js.log(twenty);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">也可以寫成這樣</span><br><span class="line">joe-&gt; ageGet-&gt; Js.log</span><br><span class="line">**/</span><br></pre></td></tr></table></figure>
+
+<p>至於改值則是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type person = &#123;</span><br><span class="line">  [@bs.optional] name: string,</span><br><span class="line">  mutable age: int,</span><br><span class="line">  job: string,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let joe = person(~age=20, ~job=&quot;teacher&quot;, ());</span><br><span class="line"></span><br><span class="line">joe-&gt; ageGet-&gt; Js.log; /* 20 */</span><br><span class="line">joe-&gt; ageSet(21)-&gt; Js.log;</span><br><span class="line">joe-&gt; ageGet-&gt; Js.log; /* 21 */</span><br></pre></td></tr></table></figure>
+
+<p><strong>note: 要記得將需要修改的參數前面加上 <code>mutable</code></strong></p>
+<h5 id="Object-Methods"><a href="#Object-Methods" class="headerlink" title="Object Methods"></a>Object Methods</h5><p>可以附加任何<code>function</code> 在類型上(任何類型的 record 不僅止於 <code>@bs.deriving abtract</code>)</p>
+<p>可以參閱 <a target="_blank" rel="noopener" href="https://bucklescript.github.io/docs/zh-TW/function#object-method">Object Method</a></p>
+<p>這部分之後會再討埨</p>
+<h5 id="可變性"><a href="#可變性" class="headerlink" title="可變性"></a>可變性</h5><p>Test.re</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type cord = &#123;</span><br><span class="line">  [@bs.optional] mutable x: int,</span><br><span class="line">  y: int,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Test.rei</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[@bs.deriving abstract]</span><br><span class="line">type cord = &#123;</span><br><span class="line">  [@bs.optional] x: int,</span><br><span class="line">  y: int,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object2"><a href="#Object2" class="headerlink" title="Object2"></a>Object2</h3><p>如果上述的 Object 並不符合您的需求 </p>
+<p>也有另外一種方式可以綁定 <code>Javascript Object</code></p>
+<p>有幾個前提</p>
+<ul>
+<li>你不想要預先宣告 <code>type</code></li>
+<li>你希望你的 Object 是有結構性的</li>
+</ul>
+<p>Ex: 你的類型希望可以接受所有含有 <code>age</code> 這個參數的物件，而不是只有特定參數的物件</p>
+<h4 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a>陷阱</h4><p><strong>note: 不能使用普通的 Reason&#x2F;OCaml 的物件類型，如下</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type person = &#123;</span><br><span class="line">  .</span><br><span class="line">  name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>你仍然可以宣告這個類型</p>
+<p>但是無法編譯成功</p>
+<p>因為 <code>Reason/OCaml</code> 的對象工作方式是不一樣的</p>
+<h4 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h4><p>BuckleScript 利用 <code>Js.t</code> 來做包裝類型</p>
+<p>以便控制和追蹤可以編譯成 Javascript 的對象子集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">type person = Js.t(&#123;</span><br><span class="line">  .</span><br><span class="line">  name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">let john = &#123;&quot;name&quot;: &quot;john&quot;, &quot;age&quot;: 11&#125;;</span><br><span class="line"></span><br><span class="line">john##name -&gt; Js.log;</span><br></pre></td></tr></table></figure>
+
+<p>從現在開始 BuckleScript 都會以 <code>Js.t</code> 來消除跟 一般物件 和 Javascript 物件的歧義</p>
+<p>因為 Reason 有包覆一層語法糖 會將 <code>Js.t(&#123;. name: string&#125;)</code> 轉為 <code>&#123;. &quot;name&quot;: string&#125;</code></p>
+<h4 id="訪問-與-修改"><a href="#訪問-與-修改" class="headerlink" title="訪問 與 修改"></a>訪問 與 修改</h4><h5 id="取值-1"><a href="#取值-1" class="headerlink" title="取值"></a>取值</h5><p>要取得值的話方法為 <code>##</code></p>
+<p>範例如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">type person = Js.t(&#123;</span><br><span class="line">  .</span><br><span class="line">  name: string,</span><br><span class="line">  age: int,</span><br><span class="line">  job: string</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">let john = &#123;</span><br><span class="line">  &quot;name&quot;: &quot;john&quot;,</span><br><span class="line">  &quot;age&quot;: 11,</span><br><span class="line">  &quot;job&quot;: &quot;development&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let johnName = john##name;</span><br></pre></td></tr></table></figure>
+
+<p>明天再來談談 <code>Some</code> 和 <code>Option</code> 的問題</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2018-10-19, 15:49:47</p>
+        <p><span>最后更新:</span>2024-07-26, 00:40:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/19/BuckleScript-Object/" title="BuckleScript-Object">https://horsekitlin.github.io/2018/10/19/BuckleScript-Object/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://horsekitlin.github.io/2018/10/19/BuckleScript-Object/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">
+                    BasicType-OptionsAndSomeAndNone
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/14/BuckleScript-Best-Friend/">
+                    BuckleScript-Best-Friend
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Bukle-Script-Object"><span class="toc-number">1.</span> <span class="toc-text">Bukle Script Object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%9C%E6%B9%8A%E8%A1%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">雜湊表模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">範例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Record-%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">Record 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">例如:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">建立</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AC%84%E4%BD%8D%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D"><span class="toc-number">1.1.2.1.2.</span> <span class="toc-text">欄位重新命名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E9%81%B8%E7%9A%84%E6%A8%99%E7%B1%A4"><span class="toc-number">1.1.2.1.2.1.</span> <span class="toc-text">可選的標籤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Accessors"><span class="toc-number">1.1.2.1.3.</span> <span class="toc-text">Accessors</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%96%E5%80%BC"><span class="toc-number">1.1.2.1.3.1.</span> <span class="toc-text">取值</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Object-Methods"><span class="toc-number">1.1.2.1.4.</span> <span class="toc-text">Object Methods</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E8%AE%8A%E6%80%A7"><span class="toc-number">1.1.2.1.5.</span> <span class="toc-text">可變性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object2"><span class="toc-number">1.1.3.</span> <span class="toc-text">Object2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%B7%E9%98%B1"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">陷阱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">解決方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AA%E5%95%8F-%E8%88%87-%E4%BF%AE%E6%94%B9"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">訪問 與 修改</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%96%E5%80%BC-1"><span class="toc-number">1.1.3.3.1.</span> <span class="toc-text">取值</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <!-- <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div> -->
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"BuckleScript-Object　| 湯瑪士的部落格　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/10/20/BasicType-OptionsAndSomeAndNone/" title="上一篇: BasicType-OptionsAndSomeAndNone">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/14/BuckleScript-Best-Friend/" title="下一篇: BuckleScript-Best-Friend">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/10/01/Day-06-Deploy-https-website/">Day-06-Deploy-https-website-part01</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/20/Day-05-ingress-controller/">Day-05-ingress-controller</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/19/Day-04-Deploy-to-cluster/">Day-04-Deploy-to-cluster</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/18/Day-03-Static-Site-Container/">Day-03-Container</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-02-Express%E8%88%87Docker/">Day-02-Express與Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-01-Docker%E7%B0%A1%E4%BB%8B/">Day-01-Docker簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/26/ReactNative-fastlane-Android/">React Native-fastlane-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/React-Native-Fastlane-IOS/">React-Native-Fastlane-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/09/React-create-rxdb-example/">React-create-rxdb-example</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartII/">React-Native-Cache-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartI/">React Native Cache PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-Android/">React-Native-Notification-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-IOS/">React-Native-Notification-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/22/Socketcluster-client-AuthorizationEngine/">Socketcluster-client-AuthorizationEngine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-scc/">SocketCluster-scc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-Storage/">SociekCluster-Storage</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/18/Redux-Part-III/">Redux-Part-III</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/17/Redux-Part-II/">Redux-Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/Redux-Part-I/">Redux-Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-Navigation/">React-Native-Navigation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-connect-server/">React-Native-connect-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-variable/">Java-Spring-Boot-variable</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-Initial/">Java-Spring-Boot-Initial</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Consumer/">SocketCluster-Consumer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/Socketcluster-Cluster-initial/">SocketCluster Cluster initial.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Authorization/">SocketCluster-Authorization</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/Moleculer-Start/">Moleculer-Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/24/RN-Platform/">React Native-Platform</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/07/Truffle-pet-user-interface/">Truffle-pet-user-interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/RN-JestInReactNative/">RN-JestInReactNative</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/RN-code-push/">RN-code-push</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/29/material-ui-themes/">material-ui-themes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/ReasonReact-lifeCycle/">ReasonReact-LifeCycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/ReasonReact-auto-deploy/">ReasonReact-auto-deploy</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/ReasonReact-publish-package/">ReasonReact-publish-package</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII-1/">ReasonReact-Todo-Tutorial-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII/">ReasonReact-Todo-Tutorial-PartIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartI/">ReasonReact-Todo-Tutorial-PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/Reason-ExternalPromiseAPI/">Reason-ExternalPromiseAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Component/">ReasonReact-Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Helloworld/">ReasonReact-Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartII/">Reason-Create-NPM-Package-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartI/">Reason Create NPM Package Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/29/BuckleScript-Function/">BuckleScript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/Express-MongoDB-PartII/">Express-MongoDB-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-MongoDB/">Express-MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-Middleware/">Express-Middleware</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Reason-BasicType-Module/">Reason-BasicType-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/26/Express-Router/">Express-Router</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/21/Express-helloworld-API/">Express-helloworld-API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">BasicType-OptionsAndSomeAndNone</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/Reason-BasicTypeIII/">Reason-BasicTypeIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/Reason-BasicTypeII/">Reason-BasicType Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Reason-BasicType/">Reason-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/Reason%E7%B0%A1%E4%BB%8B%E8%88%87Helloworld/">Reason簡介與Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Truffle-pet-demo/">truffle pet demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Javascript-HighOrderFunction/">Javascript-High Order Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Redux-compose/">Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/RN-JestErrorWithRNRouterFlux/">React Native import Image Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/Typescript-JSX/">Typescript-JSX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/TypeScript-Generic/">TypeScript-Generic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/Typescript-Function/">Typescript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/Typescript-Classes/">Typescript-Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/Typescript-Interfaces/">Typescript-Interfaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/Leetcode-Q8/">Leetcode-Q8</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/Typescript-BasicType/">Typescript-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/TypeScript-ReactAndWebpack/">TypeScript-ReactAndWebpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Typescript-MigratingFromJavascript/">Typescript-Migrating from Javascript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/Typescript-Gulp/">TypeScriptWithGulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/Typescript-TypescriptIn5Minutes/">TypeScript-TypeScriptIn5Minutes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/Leetcode-Q7/">Leedcode-Q7</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/NPM-Publish-With-Gulp/">NPM publish with gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/ReactUnitestWithJest/">ReactUnitestWithJest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/Python-Decorator/">Python-Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/Debugging-Nodejs-With-VSCode/">Debugging-Nodejs-With-VSCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/31/NodeDesignPatten-06/">NodeDesignPatten-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/RabbitMQ-Routing/">RabbitMQ-Routing</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/RabbitMQ-PublishAndSubscribe/">RabbitMQ-PublishAndSubscribe</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/24/RabbitMQ-WorkQueue/">RabbitMQ-WorkQueue</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/RabbitMQ-Install/">RabbitMQ-Install</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q6/">Leetcode-Q6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q5/">Leetcode-Q5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/Leetcode-Q4/">Leetcode-Q4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/Leetcode-Q3/">Leetcode-Q3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/Leetcode-Q2/">Leetcode-Q2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/Leetcode-Q1/">Leetcode-Q1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/29/NodeDesignPatten-01/">NodeDesignPatten-01</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2024 Tomas Lin
+            </div>
+            <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

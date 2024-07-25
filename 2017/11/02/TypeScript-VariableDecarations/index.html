@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tomas Lin" />
+
+
+
+<meta name="description" content="Variable Decarationslet 和 const 是兩種 Javascript 新的宣告方式， let 和 var 比較類似 const 則是定義之後禁止之後修改(常數) TypeScript 也有提供 let 和 const 的宣告方式，下個部分將會解釋為什麼會推薦使用 let 和 const var 宣告在 Javascript 中宣告一個變數常用的方式是 1var a &#x3D; 10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript-VariableDecarations">
+<meta property="og:url" content="https://horsekitlin.github.io/2017/11/02/TypeScript-VariableDecarations/index.html">
+<meta property="og:site_name" content="湯瑪士的部落格">
+<meta property="og:description" content="Variable Decarationslet 和 const 是兩種 Javascript 新的宣告方式， let 和 var 比較類似 const 則是定義之後禁止之後修改(常數) TypeScript 也有提供 let 和 const 的宣告方式，下個部分將會解釋為什麼會推薦使用 let 和 const var 宣告在 Javascript 中宣告一個變數常用的方式是 1var a &#x3D; 10">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2017-11-02T06:49:29.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:40:45.614Z">
+<meta property="article:author" content="Tomas Lin">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="Typescript">
+<meta property="article:tag" content="Translate">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="湯瑪士的部落格" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>TypeScript-VariableDecarations | 湯瑪士的部落格</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主頁</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">標籤</a></li>
+                        
+                            <li><a href="/about/">關於我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPatten/" rel="tag">DesignPatten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FunctionPrograming/" rel="tag">FunctionPrograming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2023/" rel="tag">IThome2023</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MessageQueue/" rel="tag">MessageQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microservies/" rel="tag">Microservies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SocketCluster/" rel="tag">SocketCluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sodility/" rel="tag">Sodility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Truffle/" rel="tag">Truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ithome-12/" rel="tag">ithome 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/" rel="tag">spring-boot</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主頁</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">標籤</a></li>
+                
+                    <li><a href="/about/">關於我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-TypeScript-VariableDecarations" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/02/TypeScript-VariableDecarations/" class="article-date">
+      <time datetime="2017-11-02T06:49:29.000Z" itemprop="datePublished">2017-11-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TypeScript-VariableDecarations
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Variable-Decarations"><a href="#Variable-Decarations" class="headerlink" title="Variable Decarations"></a>Variable Decarations</h1><p><code>let</code> 和 <code>const</code> 是兩種 Javascript 新的宣告方式， <code>let</code> 和 <code>var</code> 比較類似</p>
+<p><code>const</code> 則是定義之後禁止之後修改(常數)</p>
+<p><code>TypeScript</code> 也有提供 <code>let</code> 和 <code>const</code> 的宣告方式，下個部分將會解釋為什麼會推薦使用 <code>let</code> 和 <code>const</code></p>
+<h2 id="var-宣告"><a href="#var-宣告" class="headerlink" title="var 宣告"></a>var 宣告</h2><p>在 Javascript 中宣告一個變數常用的方式是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子之中，你宣告了一個變數 <code>a</code> 為 <code>10</code></p>
+<p>你也可以再 Function 中宣告</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> message = <span class="string">&#x27;Hello, World!&#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> message</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以允許相同的變數在不同的 <code>Function scope</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">g</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> b = a + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上方的範例中 <code>g()</code> 中可以取得變數 <code>a</code> 得值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="title function_">g</span>();</span><br><span class="line">  b =  <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">g</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>(); <span class="comment">// result 2</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 var 宣告會有一些區域的規則問題</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"><span class="attr">shouldInitialize</span>: <span class="built_in">boolean</span></span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(shouldInitialize)&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>(<span class="literal">true</span>); <span class="comment">// 10</span></span><br><span class="line"><span class="title function_">f</span>(<span class="literal">false</span>); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p> 因為 <code>var</code> 是在 if裡面，所以當 <code>shouldInitialize</code> 是 false 的話就部會執行 if裡面的程式碼</p>
+<p> 所以 x 並未宣告過，就會造成 <code>undefined</code></p>
+<p> 這個規則可能會造成壹些不同種類型的錯誤，其中一種就是當你重複宣告同樣名稱的變數的時候彼此會互相覆蓋</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sumMatrix</span>(<span class="params"><span class="attr">matrix</span>: <span class="built_in">number</span>[][]</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; currentRow.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> currentRow = matrix[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i &lt; currentRow.<span class="property">length</span>; i++&gt;)&#123;</span><br><span class="line">      sum += currentRow[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 上述範例就可以發現因為 <code>i</code> 變數在雙迴圈中會被互相覆蓋造成程式執行上的錯誤，不會依據我們預想的去執行</p>
+<h3 id="奇怪的問題"><a href="#奇怪的問題" class="headerlink" title="奇怪的問題"></a>奇怪的問題</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(i)&#125;, <span class="number">100</span>*i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是結過卻是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>但是我們希望的是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p>因為每次呼叫 <code>setTimeout</code> 會延遲一段時間後才開始執行 Function但是迴圈會不斷覆蓋掉 <code>i</code> 這個變數，而在延遲時間之後呼叫到的 <code>i</code> 則是最後覆蓋成 10 的 <code>i</code></p>
+<p>最常見要解決這件事情的方式如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> =<span class="number">0</span>; i&lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">  (<span class="keyword">function</span>(<span class="params">i</span>)&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params">i</span>)&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(i);&#125;, <span class="number">100</span>*i);</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這個看起來有點奇怪的解決方式在 javascript 中卻是常見解決這個問題的方式</p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>現在你已經知道 <code>var</code> 會有一些問題，所以會有一些問題，所以為什麼需要介紹 <code>let</code>.<code>let</code> 和 <code>var</code> 的使用方式依樣</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="string">&#x27;hello&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Block-scoping"><a href="#Block-scoping" class="headerlink" title="Block-scoping"></a>Block-scoping</h3><p>使用 <code>let</code> 宣告的時候，它的作用域市 <code>blocking-scope</code>。和 <code>var</code> 宣告的作用域不一樣，他是用大括號來做區隔</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"><span class="attr">input</span>: <span class="built_in">boolean</span></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">if</span>(input)&#123;</span><br><span class="line">    <span class="keyword">let</span> b = a + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> b; <span class="comment">// b 並不存在</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述範例中有 <code>a</code> 和 <code>b</code> 兩個變數， <code>a</code> 的變數範圍在整個 <code>f()</code> Function 之中，而 <code>b</code> 只會存在 <code>if</code>之中</p>
+<p>而變數使用 try catch 宣告的範例如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="string">&#x27;oh no!&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;oh well&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e);<span class="comment">// e not found</span></span><br></pre></td></tr></table></figure>
+
+<p>另外一個很重要的 <code>blocking-scope</code> 變數不能在宣告之前做任何動作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a++;</span><br><span class="line"><span class="keyword">let</span> a;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>TypeScript</code> 中對這樣的提前宣告較為寬鬆，你需要使用 <code>try catch</code> 來取得錯誤訊息</p>
+<p>若是沒有使用 <code>try catch</code> <code>TypeScrtip</code> 並不會顯示這個訊息，若是在 <code>ES2015</code> 則會顯示這個錯誤訊息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(); <span class="comment">//會丟出一個錯誤訊息</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> a;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重複宣告和-shadowing"><a href="#重複宣告和-shadowing" class="headerlink" title="重複宣告和 shadowing"></a>重複宣告和 shadowing</h3><p>若是使用 <code>var</code> 的方式來宣告的話，他不會在意你宣告過幾次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> x;</span><br><span class="line">  <span class="keyword">var</span> x;</span><br><span class="line">  <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>let</code> 宣告在同一個 scope 中只能宣告一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> x = <span class="number">20</span>; <span class="comment">// Error</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">100</span>;<span class="comment">// Error</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">g</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">120</span>;<span class="comment">// Error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只要是在不同的 <code>blocking-scope</code> 就可以做同名的宣告</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> (<span class="params">condition, x</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(condition)&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>(<span class="literal">false</span>, <span class="number">0</span>); <span class="comment">// returns &#x27;0&#x27;</span></span><br><span class="line"><span class="title function_">f</span>(<span class="literal">true</span>, <span class="number">0</span>);  <span class="comment">// returns &#x27;100&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>宣告一個新的名稱在另外一個內嵌的 <code>block-scoping</code> 這個行為叫做 <code>shadowing</code>，但是這樣的行為會造成一些 bugs</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sumMatrix</span>(<span class="params">matrix: number[][]</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; matrix.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> currentRow = matrix[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; currentRow.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            sum += currentRow[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>shadowing</code> 在攥寫程式碼的時候應該要避免的狀況之一</p>
+<h3 id="Block-scoped-variable-capturing"><a href="#Block-scoped-variable-capturing" class="headerlink" title="Block-scoped variable capturing"></a>Block-scoped variable capturing</h3><p>當我們在一個作用域中宣告一個變數與 Function ，而 Function 也是其中一個作用域，在這個 Function 使用已宣告的變數的時候，即使脫離了那個作用域，也是依舊可以使用該變數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">theCityThatAlwaysSleeps</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> getCity;</span><br><span class="line">  <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> city = <span class="string">&#x27;Seattle&#x27;</span>;</span><br><span class="line">    getCity = <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> city;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">getCity</span>(); <span class="comment">// Seattle</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因為 <code>city</code> 雖然是在 <code>if</code> 的作用域宣告的，但是可以透過 Function 記住他的<code>指標</code>即使脫離作用域之後也可以透過該 Function 做呼叫使用</p>
+<p>回憶之前 <code>setTimeout</code> 的範例， <code>let</code> 有相當大程度的不同</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++&gt;)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(i)&#125;, i * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>結果為</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p><code>const</code> 是另外一種不同的宣告</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numLivesForCat = <span class="number">9</span>;</span><br></pre></td></tr></table></figure>
+
+<p>雖然看起來跟 <code>let</code> 宣告一樣，雖然他們有相同的 <code>block-scoping</code> 規則，但是還是有些不同</p>
+<p><code>const</code> 宣告的變數是 <code>immutable</code> 的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numLivesForCat = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">const</span> kitty = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Aurora&quot;</span>,</span><br><span class="line">  <span class="attr">numLives</span>: numLivesForCat</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">kitty = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Danielle&#x27;</span>,</span><br><span class="line">  <span class="attr">numLives</span>: numLivesForCat</span><br><span class="line">&#125;; <span class="comment">// Error</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// All OK</span></span><br><span class="line">kitty.<span class="property">name</span> = <span class="string">&#x27;Rory&#x27;</span>;</span><br><span class="line">kitty.<span class="property">name</span> = <span class="string">&#x27;Kitty&#x27;</span>;</span><br><span class="line">kitty.<span class="property">name</span> = <span class="string">&#x27;Cat&#x27;</span>;</span><br><span class="line">kitty.<span class="property">numLives</span>--;</span><br></pre></td></tr></table></figure>
+
+<p>除非你要整個複寫整個物件，否則還是可以修改參數值得，</p>
+<p>也就是此物件性質為 <code>唯讀</code> 的，<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/interfaces.html">詳情參閱</a></p>
+<h2 id="let-vs-const"><a href="#let-vs-const" class="headerlink" title="let vs. const"></a>let vs. const</h2><p>為什麼需要兩個不同的語意卻擁有相同的 <code>block-scoping</code> 的宣告方式呢？</p>
+<p>基於 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E6%9D%83%E9%99%90%E5%8E%9F%E5%88%99">最小權限原則</a><br>若之後變數都不需要修改或是物件僅僅提供修改參數的權限時，則使用 <code>const</code>，換句話說若是變數之後有可能會被覆寫則使用 <code>let</code> 來宣告</p>
+<h2 id="Destructuring"><a href="#Destructuring" class="headerlink" title="Destructuring"></a>Destructuring</h2><p><code>ES2015</code> 的特性在 <code>Typescript</code> 中依舊可以使用</p>
+<h3 id="Array-destructuring"><a href="#Array-destructuring" class="headerlink" title="Array destructuring"></a>Array destructuring</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> input = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> [first, secode] = input;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(first); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secode); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>這個解構也可以在 Function 中使用</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">[first, second]: [<span class="built_in">number</span>, <span class="built_in">number</span>]</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(first);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>([<span class="number">1</span>, <span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>也可以將大量的變數指定給某一個變數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [first, ...rest] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(first); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// [2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<p>當然你也可抵應某些參數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [first] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(first); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以單存指定某些特定的參數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [, second, , fourth ] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-destructuring"><a href="#Object-destructuring" class="headerlink" title="Object destructuring"></a>Object destructuring</h3><p>你也可以解構 <code>object</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="string">&quot;foo&quot;</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="string">&quot;bar&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> = &#123;a, b&#125; = o;</span><br></pre></td></tr></table></figure>
+
+<p>你可以單純指定 <code>a</code>, <code>b</code> 而 <code>c</code> 可以因為不使用而跳過</p>
+<p>你也可以使用 <code>...</code> 這個形態來指定變數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;a, ...passthrogh&#125; = o;</span><br><span class="line"><span class="keyword">let</span> total = passthrough.<span class="property">b</span> + passthrogh.<span class="property">c</span>.<span class="property">length</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="property-renaming"><a href="#property-renaming" class="headerlink" title="property renaming"></a>property renaming</h3><p>你可以對變數重新命名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">a</span>: newName1, <span class="attr">b</span>: newName2&#125; = o;</span><br></pre></td></tr></table></figure>
+
+<p>也可以將 <code>a:newName1</code> 改為 <code>a as newName1</code> 也是一樣的效果</p>
+<p>在 <code>TypeScript</code> 也是需要宣告類型</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;a, b&#125;: &#123;<span class="attr">a</span>: <span class="built_in">string</span>, <span class="attr">b</span>: <span class="built_in">number</span>&#125; = o;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Default-vaules"><a href="#Default-vaules" class="headerlink" title="Default vaules"></a>Default vaules</h3><p>在你解構的時候也可以提供預設值</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">keepWholeObject</span>(<span class="params">&#123;a: <span class="built_in">string</span>, b?: <span class="built_in">number</span>&#125;</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;a, b = <span class="number">1001</span>&#125; = wholeObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>keepWholeObject</code> 中的 <code>b</code> 若是有參數則指定該參數，若是 <code>undefined</code> 或是 <code>null</code> 則指定為預設值 <code>1001</code></p>
+<h3 id="宣告-Function"><a href="#宣告-Function" class="headerlink" title="宣告 Function"></a>宣告 Function</h3><p>解構依舊可以使用在宣告函式之中</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> C = &#123;<span class="attr">a</span>: <span class="built_in">string</span>, b?:<span class="built_in">number</span>&#125;;</span><br><span class="line"><span class="keyword">function</span>(<span class="params">&#123;a, b&#125;: C</span>)&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以解構時預先放入預設值</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">&#123;a, b&#125; = &#123;a: <span class="string">&quot;&quot;</span>, b: <span class="number">0</span>&#125;</span>): <span class="built_in">void</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>(); <span class="comment">// ok, default to &#123;a: &quot;&quot;, b: 0&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>參數與設定型態都可以給予預設值，但是這兩個又有什麼不同呢？</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(<span class="params">&#123;a, b=<span class="number">0</span>&#125;: &#123;a: <span class="string">&quot;&quot;</span>&#125;</span>): <span class="built_in">void</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="title function_">f</span>(&#123;<span class="attr">a</span>: <span class="string">&#x27;yes&#x27;</span>&#125;); <span class="comment">// ok default b  = 0</span></span><br><span class="line"> <span class="title function_">f</span>(); <span class="comment">// default to a = &#123;a: &quot;&quot;&#125;, default b = 0;</span></span><br><span class="line"> <span class="title function_">f</span>(&#123;&#125;); <span class="comment">// error &#x27;a&#x27; is required </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Spread"><a href="#Spread" class="headerlink" title="Spread"></a>Spread</h2><p><code>ES2015</code> 中的 <code>Spread</code> 特性也是支援的</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> first = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> second = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> bothPlus = [<span class="number">0</span>, ...first, ...second, <span class="number">5</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bothPlus); <span class="comment">// [0, 1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Spread</code> 也可以使用在 <code>object</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults = &#123;<span class="attr">food</span>: <span class="string">&#x27;spicy&#x27;</span>, <span class="attr">price</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">ambiance</span>: <span class="string">&#x27;noisy&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> search = &#123;...defaults, <span class="attr">food</span>: <span class="string">&#x27;rich&#x27;</span>&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(search); <span class="comment">// &#123;food: &#x27;rich&#x27;, price: &#x27;$$&#x27;, ambiance: &#x27;noisy&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上述範例中 <code>search</code> 會解構 <code>defaults</code> 而且後面的 food 因為和 <code>defaults</code> 中重複而且順序在 <code>defaults</code> 的後面，所以會被覆蓋</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults = &#123;<span class="attr">food</span>: <span class="string">&#x27;spicy&#x27;</span>, <span class="attr">price</span>: <span class="string">&#x27;$$&#x27;</span>, <span class="attr">ambiance</span>: <span class="string">&#x27;noisy&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> search = &#123;<span class="attr">food</span>: <span class="string">&#x27;rich&#x27;</span>, ...defaults&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(search); <span class="comment">// &#123;food: &#x27;spicy&#x27;, price: &#x27;$$&#x27;, ambiance: &#x27;noisy&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是 <code>Spread</code> 只會繼承特性，部會繼承 Function</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span>&#123;</span><br><span class="line">  p = <span class="number">12</span>;</span><br><span class="line">  <span class="title function_">m</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> <span class="title function_">C</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> clone = &#123;...c&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(clone.<span class="property">p</span>); <span class="comment">// 12</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(clone.<span class="property">m</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>另外 <code>TypeScript</code> 編譯過程並不允許 <code>generator function</code> 的 <code>Spread</code> 參數傳遞</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2017-11-02, 14:49:29</p>
+        <p><span>最后更新:</span>2024-07-26, 00:40:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/02/TypeScript-VariableDecarations/" title="TypeScript-VariableDecarations">https://horsekitlin.github.io/2017/11/02/TypeScript-VariableDecarations/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://horsekitlin.github.io/2017/11/02/TypeScript-VariableDecarations/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/11/03/Typescript-Interfaces/">
+                    Typescript-Interfaces
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/11/02/Leetcode-Q8/">
+                    Leetcode-Q8
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Variable-Decarations"><span class="toc-number">1.</span> <span class="toc-text">Variable Decarations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#var-%E5%AE%A3%E5%91%8A"><span class="toc-number">1.1.</span> <span class="toc-text">var 宣告</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E6%80%AA%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="toc-number">1.1.1.</span> <span class="toc-text">奇怪的問題</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let"><span class="toc-number">1.2.</span> <span class="toc-text">let</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-scoping"><span class="toc-number">1.2.1.</span> <span class="toc-text">Block-scoping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A4%87%E5%AE%A3%E5%91%8A%E5%92%8C-shadowing"><span class="toc-number">1.2.2.</span> <span class="toc-text">重複宣告和 shadowing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-scoped-variable-capturing"><span class="toc-number">1.2.3.</span> <span class="toc-text">Block-scoped variable capturing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const"><span class="toc-number">1.3.</span> <span class="toc-text">const</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let-vs-const"><span class="toc-number">1.4.</span> <span class="toc-text">let vs. const</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Destructuring"><span class="toc-number">1.5.</span> <span class="toc-text">Destructuring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-destructuring"><span class="toc-number">1.5.1.</span> <span class="toc-text">Array destructuring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-destructuring"><span class="toc-number">1.5.2.</span> <span class="toc-text">Object destructuring</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#property-renaming"><span class="toc-number">1.5.3.</span> <span class="toc-text">property renaming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Default-vaules"><span class="toc-number">1.5.4.</span> <span class="toc-text">Default vaules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A3%E5%91%8A-Function"><span class="toc-number">1.5.5.</span> <span class="toc-text">宣告 Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spread"><span class="toc-number">1.6.</span> <span class="toc-text">Spread</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <!-- <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div> -->
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"TypeScript-VariableDecarations　| 湯瑪士的部落格　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/03/Typescript-Interfaces/" title="上一篇: Typescript-Interfaces">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/11/02/Leetcode-Q8/" title="下一篇: Leetcode-Q8">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/10/01/Day-06-Deploy-https-website/">Day-06-Deploy-https-website-part01</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/20/Day-05-ingress-controller/">Day-05-ingress-controller</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/19/Day-04-Deploy-to-cluster/">Day-04-Deploy-to-cluster</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/18/Day-03-Static-Site-Container/">Day-03-Container</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-02-Express%E8%88%87Docker/">Day-02-Express與Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-01-Docker%E7%B0%A1%E4%BB%8B/">Day-01-Docker簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/26/ReactNative-fastlane-Android/">React Native-fastlane-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/React-Native-Fastlane-IOS/">React-Native-Fastlane-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/09/React-create-rxdb-example/">React-create-rxdb-example</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartII/">React-Native-Cache-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartI/">React Native Cache PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-Android/">React-Native-Notification-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-IOS/">React-Native-Notification-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/22/Socketcluster-client-AuthorizationEngine/">Socketcluster-client-AuthorizationEngine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-scc/">SocketCluster-scc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-Storage/">SociekCluster-Storage</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/18/Redux-Part-III/">Redux-Part-III</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/17/Redux-Part-II/">Redux-Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/Redux-Part-I/">Redux-Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-Navigation/">React-Native-Navigation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-connect-server/">React-Native-connect-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-variable/">Java-Spring-Boot-variable</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-Initial/">Java-Spring-Boot-Initial</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Consumer/">SocketCluster-Consumer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/Socketcluster-Cluster-initial/">SocketCluster Cluster initial.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Authorization/">SocketCluster-Authorization</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/Moleculer-Start/">Moleculer-Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/24/RN-Platform/">React Native-Platform</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/07/Truffle-pet-user-interface/">Truffle-pet-user-interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/RN-JestInReactNative/">RN-JestInReactNative</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/RN-code-push/">RN-code-push</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/29/material-ui-themes/">material-ui-themes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/ReasonReact-lifeCycle/">ReasonReact-LifeCycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/ReasonReact-auto-deploy/">ReasonReact-auto-deploy</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/ReasonReact-publish-package/">ReasonReact-publish-package</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII-1/">ReasonReact-Todo-Tutorial-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII/">ReasonReact-Todo-Tutorial-PartIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartI/">ReasonReact-Todo-Tutorial-PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/Reason-ExternalPromiseAPI/">Reason-ExternalPromiseAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Component/">ReasonReact-Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Helloworld/">ReasonReact-Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartII/">Reason-Create-NPM-Package-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartI/">Reason Create NPM Package Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/29/BuckleScript-Function/">BuckleScript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/Express-MongoDB-PartII/">Express-MongoDB-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-MongoDB/">Express-MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-Middleware/">Express-Middleware</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Reason-BasicType-Module/">Reason-BasicType-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/26/Express-Router/">Express-Router</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/21/Express-helloworld-API/">Express-helloworld-API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">BasicType-OptionsAndSomeAndNone</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/Reason-BasicTypeIII/">Reason-BasicTypeIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/Reason-BasicTypeII/">Reason-BasicType Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Reason-BasicType/">Reason-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/Reason%E7%B0%A1%E4%BB%8B%E8%88%87Helloworld/">Reason簡介與Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Truffle-pet-demo/">truffle pet demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Javascript-HighOrderFunction/">Javascript-High Order Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Redux-compose/">Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/RN-JestErrorWithRNRouterFlux/">React Native import Image Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/Typescript-JSX/">Typescript-JSX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/TypeScript-Generic/">TypeScript-Generic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/Typescript-Function/">Typescript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/Typescript-Classes/">Typescript-Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/Typescript-Interfaces/">Typescript-Interfaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/Leetcode-Q8/">Leetcode-Q8</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/Typescript-BasicType/">Typescript-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/TypeScript-ReactAndWebpack/">TypeScript-ReactAndWebpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Typescript-MigratingFromJavascript/">Typescript-Migrating from Javascript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/Typescript-Gulp/">TypeScriptWithGulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/Typescript-TypescriptIn5Minutes/">TypeScript-TypeScriptIn5Minutes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/Leetcode-Q7/">Leedcode-Q7</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/NPM-Publish-With-Gulp/">NPM publish with gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/ReactUnitestWithJest/">ReactUnitestWithJest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/Python-Decorator/">Python-Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/Debugging-Nodejs-With-VSCode/">Debugging-Nodejs-With-VSCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/31/NodeDesignPatten-06/">NodeDesignPatten-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/RabbitMQ-Routing/">RabbitMQ-Routing</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/RabbitMQ-PublishAndSubscribe/">RabbitMQ-PublishAndSubscribe</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/24/RabbitMQ-WorkQueue/">RabbitMQ-WorkQueue</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/RabbitMQ-Install/">RabbitMQ-Install</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q6/">Leetcode-Q6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q5/">Leetcode-Q5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/Leetcode-Q4/">Leetcode-Q4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/Leetcode-Q3/">Leetcode-Q3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/Leetcode-Q2/">Leetcode-Q2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/Leetcode-Q1/">Leetcode-Q1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/29/NodeDesignPatten-01/">NodeDesignPatten-01</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2024 Tomas Lin
+            </div>
+            <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

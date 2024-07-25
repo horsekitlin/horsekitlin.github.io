@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tomas Lin" />
+
+
+
+<meta name="description" content="sourcematerial-ui themes ContentPalette針對 Application  設定幾個基礎色 theme 中提供幾個 key 來設定基礎色  primary - 主要的顏色 secondary - 次要的顏色 error - 顯示錯誤的時候的顏色  Custom palette在 theme 有 [palette.primary](https:&#x2F;&#x2F;material-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="material-ui-themes">
+<meta property="og:url" content="https://horsekitlin.github.io/2018/11/29/material-ui-themes/index.html">
+<meta property="og:site_name" content="湯瑪士的部落格">
+<meta property="og:description" content="sourcematerial-ui themes ContentPalette針對 Application  設定幾個基礎色 theme 中提供幾個 key 來設定基礎色  primary - 主要的顏色 secondary - 次要的顏色 error - 顯示錯誤的時候的顏色  Custom palette在 theme 有 [palette.primary](https:&#x2F;&#x2F;material-">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://material-ui.com/static/images/font-size.gif">
+<meta property="article:published_time" content="2018-11-29T07:26:38.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:40:45.617Z">
+<meta property="article:author" content="Tomas Lin">
+<meta property="article:tag" content="Css">
+<meta property="article:tag" content="Themes">
+<meta property="article:tag" content="Material-design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://material-ui.com/static/images/font-size.gif">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="湯瑪士的部落格" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>material-ui-themes | 湯瑪士的部落格</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主頁</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">標籤</a></li>
+                        
+                            <li><a href="/about/">關於我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPatten/" rel="tag">DesignPatten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FunctionPrograming/" rel="tag">FunctionPrograming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2023/" rel="tag">IThome2023</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MessageQueue/" rel="tag">MessageQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microservies/" rel="tag">Microservies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SocketCluster/" rel="tag">SocketCluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sodility/" rel="tag">Sodility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Truffle/" rel="tag">Truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ithome-12/" rel="tag">ithome 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/" rel="tag">spring-boot</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主頁</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">標籤</a></li>
+                
+                    <li><a href="/about/">關於我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-material-ui-themes" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/29/material-ui-themes/" class="article-date">
+      <time datetime="2018-11-29T07:26:38.000Z" itemprop="datePublished">2018-11-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      material-ui-themes
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Css/">Css</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="source"><a href="#source" class="headerlink" title="source"></a>source</h1><p><a target="_blank" rel="noopener" href="https://material-ui.com/customization/themes/#palette">material-ui themes</a></p>
+<h1 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h1><h2 id="Palette"><a href="#Palette" class="headerlink" title="Palette"></a>Palette</h2><p>針對 Application  設定幾個基礎色</p>
+<p>theme 中提供幾個 key 來設定基礎色</p>
+<ul>
+<li>primary - 主要的顏色</li>
+<li>secondary - 次要的顏色</li>
+<li>error - 顯示錯誤的時候的顏色</li>
+</ul>
+<h3 id="Custom-palette"><a href="#Custom-palette" class="headerlink" title="Custom palette"></a>Custom palette</h3><p>在 theme 有 <code>[palette.primary](https://material-ui.com/customization/default-theme/?expend-path=$.palette.primary)</code>, <code>[palette.secondary](https://material-ui.com/customization/default-theme/?expend-path=$.palette.secondary)</code>, <code>[palette.error](https://material-ui.com/customization/default-theme/?expend-path=$.palette.error)</code> 三個物件可以複寫</p>
+<p>在上述三個物件中各有 <code>light</code>, <code>main</code>, <code>dark</code>, <code>contrastText</code> 四個參數可以提供修改</p>
+<p>可以直接放入顏色的物件作設定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createMuiTheme &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> blue <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors/blue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">palette</span>: &#123;</span><br><span class="line">    <span class="attr">primary</span>: blue,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以依據各個不同的狀況做設定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">palette</span>: &#123;</span><br><span class="line">  <span class="attr">primary</span>: &#123;</span><br><span class="line">    <span class="attr">light</span>: palette.<span class="property">primary</span>[<span class="number">300</span>],</span><br><span class="line">    <span class="attr">main</span>: palette.<span class="property">primary</span>[<span class="number">500</span>],</span><br><span class="line">    <span class="attr">dark</span>: palette.<span class="property">primary</span>[<span class="number">700</span>],</span><br><span class="line">    <span class="attr">contrastText</span>: <span class="title function_">getContrastText</span>(palette.<span class="property">primary</span>[<span class="number">500</span>]),</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">secondary</span>: &#123;</span><br><span class="line">    <span class="attr">light</span>: palette.<span class="property">secondary</span>.<span class="property">A200</span>,</span><br><span class="line">    <span class="attr">main</span>: palette.<span class="property">secondary</span>.<span class="property">A400</span>,</span><br><span class="line">    <span class="attr">dark</span>: palette.<span class="property">secondary</span>.<span class="property">A700</span>,</span><br><span class="line">    <span class="attr">contrastText</span>: <span class="title function_">getContrastText</span>(palette.<span class="property">secondary</span>.<span class="property">A400</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">error</span>: &#123;</span><br><span class="line">    <span class="attr">light</span>: palette.<span class="property">error</span>[<span class="number">300</span>],</span><br><span class="line">    <span class="attr">main</span>: palette.<span class="property">error</span>[<span class="number">500</span>],</span><br><span class="line">    <span class="attr">dark</span>: palette.<span class="property">error</span>[<span class="number">700</span>],</span><br><span class="line">    <span class="attr">contrastText</span>: <span class="title function_">getContrastText</span>(palette.<span class="property">error</span>[<span class="number">500</span>]),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>這個範例說明如何重新建立一個預設 palette </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createMuiTheme &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> indigo <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors/indigo&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> pink <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors/pink&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> red <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors/red&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// All the following keys are optional.</span></span><br><span class="line"><span class="comment">// We try our best to provide a great default value.</span></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">palette</span>: &#123;</span><br><span class="line">    <span class="attr">primary</span>: indigo,</span><br><span class="line">    <span class="attr">secondary</span>: pink,</span><br><span class="line">    <span class="attr">error</span>: red,</span><br><span class="line">    <span class="comment">// 提供 getContrastText() 使用的值，最大化背景之間的對比度</span></span><br><span class="line">    <span class="attr">contrastThreshold</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="comment">// E.g., shift from Red 500 to Red 300 or Red 700.</span></span><br><span class="line">    <span class="attr">tonalOffset</span>: <span class="number">0.2</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以客製化自己的顏色</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createMuiTheme &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">palette</span>: &#123;</span><br><span class="line">    <span class="attr">primary</span>: &#123;</span><br><span class="line">      <span class="comment">// light: will be calculated from palette.primary.main,</span></span><br><span class="line">      <span class="attr">main</span>: <span class="string">&#x27;#ff4400&#x27;</span>,</span><br><span class="line">      <span class="comment">// dark: will be calculated from palette.primary.main,</span></span><br><span class="line">      <span class="comment">// contrastText: will be calculated to contrast with palette.primary.main</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">secondary</span>: &#123;</span><br><span class="line">      <span class="attr">light</span>: <span class="string">&#x27;#0066ff&#x27;</span>,</span><br><span class="line">      <span class="attr">main</span>: <span class="string">&#x27;#0044ff&#x27;</span>,</span><br><span class="line">      <span class="comment">// dark: will be calculated from palette.secondary.main,</span></span><br><span class="line">      <span class="attr">contrastText</span>: <span class="string">&#x27;#ffcc00&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// error: will use the default color</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也有提供 <a target="_blank" rel="noopener" href="https://material-ui.com/style/color/#color-tool">color tools</a></p>
+<h3 id="Type-light-dark-theme"><a href="#Type-light-dark-theme" class="headerlink" title="Type(light&#x2F;dark theme)"></a>Type(light&#x2F;dark theme)</h3><p>你可以透過修改 <code>type</code> 改為 <code>dark</code> 來將佈景變暗</p>
+<p>雖然只有改變一個參數</p>
+<p>但是下述的 key 都會受到影響</p>
+<ul>
+<li>palette.text</li>
+<li>palette.divider</li>
+<li>palette.background</li>
+<li>palette.action</li>
+</ul>
+<h3 id="Typography"><a href="#Typography" class="headerlink" title="Typography"></a>Typography</h3><p>一次太多字型 類型大小和 Style 會破壞 Layout</p>
+<p>提供一組有限的 Style 來限制</p>
+<p><code>Typography</code> 可以使用在任何的 component 中</p>
+<p><a target="_blank" rel="noopener" href="https://material-ui.com/style/typography/">Typography section</a></p>
+<h4 id="Font-family"><a href="#Font-family" class="headerlink" title="Font family"></a>Font family</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">typography</span>: &#123;</span><br><span class="line">    <span class="comment">// Use the system font instead of the default Roboto font.</span></span><br><span class="line">    <span class="attr">fontFamily</span>: [</span><br><span class="line">      <span class="string">&#x27;-apple-system&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;BlinkMacSystemFont&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;&quot;Segoe UI&quot;&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Roboto&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;&quot;Helvetica Neue&quot;&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Arial&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;sans-serif&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;&quot;Apple Color Emoji&quot;&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;&quot;Segoe UI Emoji&quot;&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;&quot;Segoe UI Symbol&quot;&#x27;</span>,</span><br><span class="line">    ].<span class="title function_">join</span>(<span class="string">&#x27;,&#x27;</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Material-UI 的字型大小預設使用 <code>rem</code> 但是他會依據 <code>&lt;html&gt;</code> 的預設字型大小改變</p>
+<p>一般來說預設是 <code>16px</code> browser 沒有提供修改的方式</p>
+<p>所以 <code>units</code> 提供一個方式來修改設定提升使用者體驗</p>
+<p>修改 font-size 為 <code>12</code> 預設是 <code>14</code></p>
+<h5 id="HTML-font-size"><a href="#HTML-font-size" class="headerlink" title="HTML font size"></a>HTML font size</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">typography</span>: &#123;</span><br><span class="line">    <span class="comment">// In Japanese the characters are usually larger.</span></span><br><span class="line">    <span class="attr">fontSize</span>: <span class="number">12</span>,</span><br><span class="line">    <span class="attr">htmlFontSize</span>: <span class="number">10</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>瀏覽器計算字型大小是透過這個公式</p>
+<p><img src="https://material-ui.com/static/images/font-size.gif" alt="calc font size"></p>
+<h3 id="Custom-variables"><a href="#Custom-variables" class="headerlink" title="Custom variables"></a>Custom variables</h3><p>也可以透過 <code>styling solution</code> 來客製化你的 component</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Checkbox</span> <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/Checkbox&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createMuiTheme, <span class="title class_">MuiThemeProvider</span>, withStyles &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> orange <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors/orange&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">styles</span> = theme =&gt; (&#123;</span><br><span class="line">  <span class="attr">root</span>: &#123;</span><br><span class="line">    <span class="attr">color</span>: theme.<span class="property">status</span>.<span class="property">danger</span>,</span><br><span class="line">    <span class="string">&#x27;&amp;$checked&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">color</span>: theme.<span class="property">status</span>.<span class="property">danger</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">checked</span>: &#123;&#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">CustomCheckbox</span> = props =&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Checkbox</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">defaultChecked</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">classes</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">root:</span> <span class="attr">props.classes.root</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">checked:</span> <span class="attr">props.classes.checked</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  /&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="title class_">CustomCheckbox</span> = <span class="title function_">withStyles</span>(styles)(<span class="title class_">CustomCheckbox</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">status</span>: &#123;</span><br><span class="line">    <span class="attr">danger</span>: orange[<span class="number">500</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">StylingComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">MuiThemeProvider</span> <span class="attr">theme</span>=<span class="string">&#123;theme&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">CustomCheckbox</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">MuiThemeProvider</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">StylingComponent</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Customizing-all-instances-of-a-component-type"><a href="#Customizing-all-instances-of-a-component-type" class="headerlink" title="Customizing all instances of a component type"></a>Customizing all instances of a component type</h3><p>有時候要針對單一 Component 做設定的時候可以用 <code>overrides</code> 這個 keyword 來做複寫</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> logo <span class="keyword">from</span> <span class="string">&#x27;./logo.svg&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./App.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">MuiThemeProvider</span>, createMuiTheme&#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;purple, green, blue&#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Example</span> <span class="keyword">from</span> <span class="string">&#x27;./Example&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span>, <span class="title class_">Typography</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ListItems</span> <span class="keyword">from</span> <span class="string">&#x27;./ListItems&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">StylingComponent</span> <span class="keyword">from</span> <span class="string">&#x27;./StylingComponent&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">overrides</span>: &#123;</span><br><span class="line">    <span class="comment">// Name of the component ⚛️ / style sheet</span></span><br><span class="line">    <span class="title class_">MuiButton</span>: &#123;</span><br><span class="line">      <span class="comment">// Name of the rule</span></span><br><span class="line">      <span class="attr">root</span>: &#123;</span><br><span class="line">        <span class="comment">// Some CSS</span></span><br><span class="line">        <span class="attr">background</span>: <span class="string">&#x27;linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)&#x27;</span>,</span><br><span class="line">        <span class="attr">borderRadius</span>: <span class="number">3</span>,</span><br><span class="line">        <span class="attr">border</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&#x27;white&#x27;</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">48</span>,</span><br><span class="line">        <span class="attr">padding</span>: <span class="string">&#x27;0 30px&#x27;</span>,</span><br><span class="line">        <span class="attr">boxShadow</span>: <span class="string">&#x27;0 3px 5px 2px rgba(255, 105, 135, .3)&#x27;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">MuiThemeProvider</span> <span class="attr">theme</span>=<span class="string">&#123;theme&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">MuiThemeProvider</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><p>也可以傳入 <code>properties</code> 使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">MuiThemeProvider</span>, createMuiTheme&#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;purple, green, blue&#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/colors&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> theme = <span class="title function_">createMuiTheme</span>(&#123;</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="comment">// Name of the component ⚛️</span></span><br><span class="line">    <span class="title class_">MuiButton</span>: &#123;</span><br><span class="line">      <span class="comment">// The properties to apply</span></span><br><span class="line">      <span class="attr">disableRipple</span>: <span class="literal">true</span>, <span class="comment">// No more ripple, on the whole application 💣!</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">MuiThemeProvider</span> <span class="attr">theme</span>=<span class="string">&#123;theme&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Button</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">MuiThemeProvider</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到結果 ripple 會被 disabled</p>
+<h3 id="Accessing-the-theme-in-a-component"><a href="#Accessing-the-theme-in-a-component" class="headerlink" title="Accessing the theme in a component"></a>Accessing the theme in a component</h3><p>有時候會希望在某些 Component 中使用 theme 的變數</p>
+<p>這時候可以使用 <code>withTheme</code></p>
+<p>範例如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PropTypes</span> <span class="keyword">from</span> <span class="string">&#x27;prop-types&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Typography</span> <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/Typography&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; withTheme &#125; <span class="keyword">from</span> <span class="string">&#x27;@material-ui/core/styles&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">WithTheme</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; theme &#125; = props;</span><br><span class="line">  <span class="keyword">const</span> primaryText = theme.<span class="property">palette</span>.<span class="property">text</span>.<span class="property">primary</span>;</span><br><span class="line">  <span class="keyword">const</span> primaryColor = theme.<span class="property">palette</span>.<span class="property">primary</span>.<span class="property">main</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> styles = &#123;</span><br><span class="line">    <span class="attr">primaryText</span>: &#123;</span><br><span class="line">      <span class="attr">backgroundColor</span>: theme.<span class="property">palette</span>.<span class="property">background</span>.<span class="property">default</span>,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">`<span class="subst">$&#123;theme.spacing.unit&#125;</span>px <span class="subst">$&#123;theme.spacing.unit * <span class="number">2</span>&#125;</span>px`</span>,</span><br><span class="line">      <span class="attr">color</span>: primaryText,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">primaryColor</span>: &#123;</span><br><span class="line">      <span class="attr">backgroundColor</span>: primaryColor,</span><br><span class="line">      <span class="attr">padding</span>: <span class="string">`<span class="subst">$&#123;theme.spacing.unit&#125;</span>px <span class="subst">$&#123;theme.spacing.unit * <span class="number">2</span>&#125;</span>px`</span>,</span><br><span class="line">      <span class="attr">color</span>: theme.<span class="property">palette</span>.<span class="property">common</span>.<span class="property">white</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> <span class="attr">300</span> &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Typography</span> <span class="attr">style</span>=<span class="string">&#123;styles.primaryColor&#125;</span>&gt;</span>&#123;`Primary color $&#123;primaryColor&#125;`&#125;<span class="tag">&lt;/<span class="name">Typography</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Typography</span> <span class="attr">style</span>=<span class="string">&#123;styles.primaryText&#125;</span>&gt;</span>&#123;`Primary text $&#123;primaryText&#125;`&#125;<span class="tag">&lt;/<span class="name">Typography</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">WithTheme</span>.<span class="property">propTypes</span> = &#123;</span><br><span class="line">  <span class="attr">theme</span>: <span class="title class_">PropTypes</span>.<span class="property">object</span>.<span class="property">isRequired</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">withTheme</span>()(<span class="title class_">WithTheme</span>); <span class="comment">// Let&#x27;s get the theme as a property</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/29/material-ui-themes/">material-ui-themes</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2018-11-29, 15:26:38</p>
+        <p><span>最后更新:</span>2024-07-26, 00:40:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/29/material-ui-themes/" title="material-ui-themes">https://horsekitlin.github.io/2018/11/29/material-ui-themes/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://horsekitlin.github.io/2018/11/29/material-ui-themes/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/01/02/RN-code-push/">
+                    RN-code-push
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/13/ReasonReact-lifeCycle/">
+                    ReasonReact-LifeCycle
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#source"><span class="toc-number">1.</span> <span class="toc-text">source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Content"><span class="toc-number">2.</span> <span class="toc-text">Content</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Palette"><span class="toc-number">2.1.</span> <span class="toc-text">Palette</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Custom-palette"><span class="toc-number">2.1.1.</span> <span class="toc-text">Custom palette</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Type-light-dark-theme"><span class="toc-number">2.1.2.</span> <span class="toc-text">Type(light&#x2F;dark theme)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typography"><span class="toc-number">2.1.3.</span> <span class="toc-text">Typography</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Font-family"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">Font family</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML-font-size"><span class="toc-number">2.1.3.1.1.</span> <span class="toc-text">HTML font size</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Custom-variables"><span class="toc-number">2.1.4.</span> <span class="toc-text">Custom variables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Customizing-all-instances-of-a-component-type"><span class="toc-number">2.1.5.</span> <span class="toc-text">Customizing all instances of a component type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties"><span class="toc-number">2.1.6.</span> <span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accessing-the-theme-in-a-component"><span class="toc-number">2.1.7.</span> <span class="toc-text">Accessing the theme in a component</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <!-- <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div> -->
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"material-ui-themes　| 湯瑪士的部落格　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/01/02/RN-code-push/" title="上一篇: RN-code-push">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/13/ReasonReact-lifeCycle/" title="下一篇: ReasonReact-LifeCycle">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/10/01/Day-06-Deploy-https-website/">Day-06-Deploy-https-website-part01</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/20/Day-05-ingress-controller/">Day-05-ingress-controller</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/19/Day-04-Deploy-to-cluster/">Day-04-Deploy-to-cluster</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/18/Day-03-Static-Site-Container/">Day-03-Container</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-02-Express%E8%88%87Docker/">Day-02-Express與Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-01-Docker%E7%B0%A1%E4%BB%8B/">Day-01-Docker簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/26/ReactNative-fastlane-Android/">React Native-fastlane-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/React-Native-Fastlane-IOS/">React-Native-Fastlane-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/09/React-create-rxdb-example/">React-create-rxdb-example</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartII/">React-Native-Cache-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartI/">React Native Cache PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-Android/">React-Native-Notification-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-IOS/">React-Native-Notification-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/22/Socketcluster-client-AuthorizationEngine/">Socketcluster-client-AuthorizationEngine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-scc/">SocketCluster-scc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-Storage/">SociekCluster-Storage</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/18/Redux-Part-III/">Redux-Part-III</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/17/Redux-Part-II/">Redux-Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/Redux-Part-I/">Redux-Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-Navigation/">React-Native-Navigation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-connect-server/">React-Native-connect-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-variable/">Java-Spring-Boot-variable</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-Initial/">Java-Spring-Boot-Initial</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Consumer/">SocketCluster-Consumer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/Socketcluster-Cluster-initial/">SocketCluster Cluster initial.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Authorization/">SocketCluster-Authorization</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/Moleculer-Start/">Moleculer-Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/24/RN-Platform/">React Native-Platform</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/07/Truffle-pet-user-interface/">Truffle-pet-user-interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/RN-JestInReactNative/">RN-JestInReactNative</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/RN-code-push/">RN-code-push</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/29/material-ui-themes/">material-ui-themes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/ReasonReact-lifeCycle/">ReasonReact-LifeCycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/ReasonReact-auto-deploy/">ReasonReact-auto-deploy</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/ReasonReact-publish-package/">ReasonReact-publish-package</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII-1/">ReasonReact-Todo-Tutorial-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII/">ReasonReact-Todo-Tutorial-PartIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartI/">ReasonReact-Todo-Tutorial-PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/Reason-ExternalPromiseAPI/">Reason-ExternalPromiseAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Component/">ReasonReact-Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Helloworld/">ReasonReact-Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartII/">Reason-Create-NPM-Package-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartI/">Reason Create NPM Package Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/29/BuckleScript-Function/">BuckleScript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/Express-MongoDB-PartII/">Express-MongoDB-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-MongoDB/">Express-MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-Middleware/">Express-Middleware</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Reason-BasicType-Module/">Reason-BasicType-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/26/Express-Router/">Express-Router</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/21/Express-helloworld-API/">Express-helloworld-API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">BasicType-OptionsAndSomeAndNone</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/Reason-BasicTypeIII/">Reason-BasicTypeIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/Reason-BasicTypeII/">Reason-BasicType Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Reason-BasicType/">Reason-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/Reason%E7%B0%A1%E4%BB%8B%E8%88%87Helloworld/">Reason簡介與Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Truffle-pet-demo/">truffle pet demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Javascript-HighOrderFunction/">Javascript-High Order Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Redux-compose/">Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/RN-JestErrorWithRNRouterFlux/">React Native import Image Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/Typescript-JSX/">Typescript-JSX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/TypeScript-Generic/">TypeScript-Generic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/Typescript-Function/">Typescript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/Typescript-Classes/">Typescript-Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/Typescript-Interfaces/">Typescript-Interfaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/Leetcode-Q8/">Leetcode-Q8</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/Typescript-BasicType/">Typescript-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/TypeScript-ReactAndWebpack/">TypeScript-ReactAndWebpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Typescript-MigratingFromJavascript/">Typescript-Migrating from Javascript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/Typescript-Gulp/">TypeScriptWithGulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/Typescript-TypescriptIn5Minutes/">TypeScript-TypeScriptIn5Minutes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/Leetcode-Q7/">Leedcode-Q7</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/NPM-Publish-With-Gulp/">NPM publish with gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/ReactUnitestWithJest/">ReactUnitestWithJest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/Python-Decorator/">Python-Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/Debugging-Nodejs-With-VSCode/">Debugging-Nodejs-With-VSCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/31/NodeDesignPatten-06/">NodeDesignPatten-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/RabbitMQ-Routing/">RabbitMQ-Routing</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/RabbitMQ-PublishAndSubscribe/">RabbitMQ-PublishAndSubscribe</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/24/RabbitMQ-WorkQueue/">RabbitMQ-WorkQueue</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/RabbitMQ-Install/">RabbitMQ-Install</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q6/">Leetcode-Q6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q5/">Leetcode-Q5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/Leetcode-Q4/">Leetcode-Q4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/Leetcode-Q3/">Leetcode-Q3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/Leetcode-Q2/">Leetcode-Q2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/Leetcode-Q1/">Leetcode-Q1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/29/NodeDesignPatten-01/">NodeDesignPatten-01</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2024 Tomas Lin
+            </div>
+            <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

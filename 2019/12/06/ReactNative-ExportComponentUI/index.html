@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Tomas Lin" />
+
+
+
+<meta name="description" content="Setup123react-native init CounterAppcd CounterAppreact-native run-ios  App.js 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253import React from &#x27;r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native-ExportComponentUI">
+<meta property="og:url" content="https://horsekitlin.github.io/2019/12/06/ReactNative-ExportComponentUI/index.html">
+<meta property="og:site_name" content="湯瑪士的部落格">
+<meta property="og:description" content="Setup123react-native init CounterAppcd CounterAppreact-native run-ios  App.js 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253import React from &#x27;r">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2019-12-06T09:13:39.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:40:45.597Z">
+<meta property="article:author" content="Tomas Lin">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="React Native">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="湯瑪士的部落格" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>React Native-ExportComponentUI | 湯瑪士的部落格</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主頁</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">標籤</a></li>
+                        
+                            <li><a href="/about/">關於我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BuckleScript/" rel="tag">BuckleScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Css/" rel="tag">Css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPatten/" rel="tag">DesignPatten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FunctionPrograming/" rel="tag">FunctionPrograming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2018/" rel="tag">IThome2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IThome2023/" rel="tag">IThome2023</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Material-design/" rel="tag">Material-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MessageQueue/" rel="tag">MessageQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microservies/" rel="tag">Microservies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reason/" rel="tag">Reason</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SocketCluster/" rel="tag">SocketCluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sodility/" rel="tag">Sodility</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Themes/" rel="tag">Themes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/" rel="tag">Translate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Truffle/" rel="tag">Truffle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typescript/" rel="tag">Typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ithome-12/" rel="tag">ithome 12</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/" rel="tag">spring-boot</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主頁</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">標籤</a></li>
+                
+                    <li><a href="/about/">關於我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:passon.com.tw@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/passontw" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-ReactNative-ExportComponentUI" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/06/ReactNative-ExportComponentUI/" class="article-date">
+      <time datetime="2019-12-06T09:13:39.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Native-ExportComponentUI
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/" rel="tag">React Native</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-<span class="keyword">native</span> init CounterApp</span><br><span class="line">cd CounterApp</span><br><span class="line">react-<span class="keyword">native</span> run-ios</span><br></pre></td></tr></table></figure>
+
+<p>App.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">StyleSheet</span>,</span><br><span class="line">  <span class="title class_">View</span>,</span><br><span class="line">  <span class="title class_">Text</span>,</span><br><span class="line">  <span class="title class_">TouchableOpacity</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123; </span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  increment = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123; <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">1</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">TouchableOpacity</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;[styles.wrapper,</span> <span class="attr">styles.border</span>]&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onPress</span>=<span class="string">&#123;this.increment&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;this.state.count&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> styles = <span class="title class_">StyleSheet</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">container</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;stretch&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">wrapper</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;center&quot;</span>, <span class="attr">justifyContent</span>: <span class="string">&quot;center&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">border</span>: &#123;</span><br><span class="line">    <span class="attr">borderColor</span>: <span class="string">&quot;#eee&quot;</span>, <span class="attr">borderBottomWidth</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">button</span>: &#123;</span><br><span class="line">    <span class="attr">fontSize</span>: <span class="number">50</span>, <span class="attr">color</span>: <span class="string">&quot;orange&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="How-to-expose-a-Swift-UI-Component-to-JS"><a href="#How-to-expose-a-Swift-UI-Component-to-JS" class="headerlink" title="How to expose a Swift UI Component to JS"></a>How to expose a Swift UI Component to JS</h1><h2 id="建立一個-Swift-ViewManager"><a href="#建立一個-Swift-ViewManager" class="headerlink" title="建立一個 Swift ViewManager"></a>建立一個 Swift ViewManager</h2><ul>
+<li>File → New → File… (or CMD+N)</li>
+<li>Select Swift File</li>
+<li>Name your file CounterViewManager</li>
+<li>In the Group dropdown, make sure to select the group CounterApp, not the project itself.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://miro.medium.com/max/1514/1*GaIIeNeYbncmKNTMwLs-Dg.png">!select CounterApp</a></p>
+<h3 id="Configure-the-Objective-C-Bridging-Header"><a href="#Configure-the-Objective-C-Bridging-Header" class="headerlink" title="Configure the Objective-C Bridging Header"></a>Configure the Objective-C Bridging Header</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">After you create the Swift file, you should be prompted to choose if you want to configure an Objective-C Bridging Header. Select “Create Bridging Header”.</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://miro.medium.com/max/1214/1*KOH-ocd4sVbgoXvS5j8d2g.png">configure Objective-C Bridging Header</a></p>
+<p>如果您還沒有標題，請立即添加其中兩個標題</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CounterApp-Bridging-Header.h</span></span><br><span class="line"></span><br><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTBridgeModule.h&quot;</span></span><br><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTViewManager.h&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>CounterViewManager.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@objc(CounterViewManager)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterViewManager</span>: <span class="title class_ inherited__">RCTViewManager</span> &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">view</span>() -&gt; <span class="type">UIView</span>! &#123;</span><br><span class="line">    <span class="keyword">let</span> label <span class="operator">=</span> <span class="type">UILabel</span>()</span><br><span class="line">    label.text <span class="operator">=</span> <span class="string">&quot;Swift Counter&quot;</span></span><br><span class="line">    label.textAlignment <span class="operator">=</span> .center</span><br><span class="line">    <span class="keyword">return</span> label</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="新增一個-Obj-C-檔案"><a href="#新增一個-Obj-C-檔案" class="headerlink" title="新增一個 Obj-C 檔案"></a>新增一個 Obj-C 檔案</h2><ul>
+<li>File → New → File… (or CMD+N)</li>
+<li>Select Objective-C File</li>
+<li>Name your file CounterViewManager</li>
+</ul>
+<p>CounterViewManager.m</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#import &quot;React/RCTViewManager.h&quot;</span><br><span class="line"></span><br><span class="line">@interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+<h2 id="Access-your-Component-from-JS"><a href="#Access-your-Component-from-JS" class="headerlink" title="Access your Component from JS"></a>Access your Component from JS</h2><p>現在你可以使用 <code>requireNativeComponent</code> 來使用</p>
+<h2 id="建立-swiftUI"><a href="#建立-swiftUI" class="headerlink" title="建立 swiftUI"></a>建立 swiftUI</h2><p>CounterViewManager.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@objc(CounterViewManager)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterViewManager</span>: <span class="title class_ inherited__">RCTViewManager</span> &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requiresMainQueueSetup</span>() -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">view</span>() -&gt; <span class="type">UIView</span>! &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">CounterView</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CounterView.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterView</span>: <span class="title class_ inherited__">UIView</span> &#123;</span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">var</span> count <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">      button.setTitle(<span class="type">String</span>(describing: count), for: .normal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">init</span>(<span class="params">frame</span>: <span class="type">CGRect</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    <span class="keyword">self</span>.addSubview(button)</span><br><span class="line">    increment()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">required</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">    <span class="built_in">fatalError</span>(<span class="string">&quot;init(coder:) has not been implemented&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">lazy</span> <span class="keyword">var</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> b <span class="operator">=</span> <span class="type">UIButton</span>.<span class="keyword">init</span>(type: <span class="type">UIButton</span>.<span class="type">ButtonType</span>.system)</span><br><span class="line">    b.titleLabel<span class="operator">?</span>.font <span class="operator">=</span> <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">50</span>)</span><br><span class="line">    b.autoresizingMask <span class="operator">=</span> [.flexibleWidth, .flexibleHeight]</span><br><span class="line">    b.addTarget(</span><br><span class="line">      <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(increment),</span><br><span class="line">      for: .touchUpInside</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">  &#125;()</span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">    count <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-send-props-to-a-Swift-Component"><a href="#How-to-send-props-to-a-Swift-Component" class="headerlink" title="How to send props to a Swift Component"></a>How to send props to a Swift Component</h2><p>可以透過 <code>RCT_EXPORT_VIEW_PROPERTY</code> 來 export props</p>
+<p>在這個範例中 將 <code>count</code> export </p>
+<p>CounterViewManager.m</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTViewManager.h&quot;</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">interface</span> <span class="symbol">RCT_EXTERN_MODULE</span>(<span class="symbol">CounterViewManager</span>, <span class="symbol">RCTViewManager</span>)</span><br><span class="line">  <span class="symbol">RCT_EXPORT_VIEW_PROPERTY</span>(<span class="symbol">count</span>, <span class="symbol">NSNumber</span>)</span><br><span class="line">@<span class="symbol">end</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>Important: you have to use Obj-C types for variables exposed to React Native</code></p>
+<p>CounterView.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterView</span>: <span class="title class_ inherited__">UIView</span> &#123;</span><br><span class="line">   <span class="keyword">@objc</span> <span class="keyword">var</span> count: <span class="type">NSNumber</span> <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">      button.setTitle(<span class="type">String</span>(describing: count), for: .normal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">init</span>(<span class="params">frame</span>: <span class="type">CGRect</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    <span class="keyword">self</span>.addSubview(button)</span><br><span class="line">    increment()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">required</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">    <span class="built_in">fatalError</span>(<span class="string">&quot;init(coder:) has not been implemented&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">lazy</span> <span class="keyword">var</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> b <span class="operator">=</span> <span class="type">UIButton</span>.<span class="keyword">init</span>(type: <span class="type">UIButton</span>.<span class="type">ButtonType</span>.system)</span><br><span class="line">    b.titleLabel<span class="operator">?</span>.font <span class="operator">=</span> <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">50</span>)</span><br><span class="line">    b.autoresizingMask <span class="operator">=</span> [.flexibleWidth, .flexibleHeight]</span><br><span class="line">    b.addTarget(</span><br><span class="line">      <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(increment),</span><br><span class="line">      for: .touchUpInside</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">  &#125;()</span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">    count <span class="operator">=</span> count.intValue <span class="operator">+</span> <span class="number">1</span> <span class="keyword">as</span> <span class="type">NSNumber</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>App.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">StyleSheet</span>,</span><br><span class="line">  <span class="title class_">View</span>,</span><br><span class="line">  <span class="title class_">Text</span>,</span><br><span class="line">  <span class="title class_">TouchableOpacity</span>,</span><br><span class="line">  requireNativeComponent,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CounterView</span> = <span class="title function_">requireNativeComponent</span>(<span class="string">&quot;CounterView&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123; </span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  increment = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123; <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">1</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">TouchableOpacity</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;[styles.wrapper,</span> <span class="attr">styles.border</span>]&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onPress</span>=<span class="string">&#123;this.increment&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;this.state.count&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CounterView</span> <span class="attr">style</span>=<span class="string">&#123;</span> <span class="attr">styles.wrapper</span> &#125; <span class="attr">count</span>=<span class="string">&#123;2&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> styles = <span class="title class_">StyleSheet</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">container</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;stretch&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">wrapper</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;center&quot;</span>, <span class="attr">justifyContent</span>: <span class="string">&quot;center&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">border</span>: &#123;</span><br><span class="line">    <span class="attr">borderColor</span>: <span class="string">&quot;#eee&quot;</span>, <span class="attr">borderBottomWidth</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">button</span>: &#123;</span><br><span class="line">    <span class="attr">fontSize</span>: <span class="number">50</span>, <span class="attr">color</span>: <span class="string">&quot;orange&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Expose-a-Component-Event-Emitter"><a href="#Expose-a-Component-Event-Emitter" class="headerlink" title="Expose a Component Event Emitter"></a>Expose a Component Event Emitter</h2><p>接下來使用一個 <code>function</code> 來讓 native 使用</p>
+<p>CounterView.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterView</span>: <span class="title class_ inherited__">UIView</span> &#123;</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">@objc</span> <span class="keyword">var</span> onUpdate: <span class="type">RCTDirectEventBlock</span>?</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">@objc</span> <span class="keyword">var</span> count: <span class="type">NSNumber</span> <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">      button.setTitle(<span class="type">String</span>(describing: count), for: .normal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">init</span>(<span class="params">frame</span>: <span class="type">CGRect</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    <span class="keyword">self</span>.addSubview(button)</span><br><span class="line">    increment()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">required</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">    <span class="built_in">fatalError</span>(<span class="string">&quot;init(coder:) has not been implemented&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">lazy</span> <span class="keyword">var</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> b <span class="operator">=</span> <span class="type">UIButton</span>.<span class="keyword">init</span>(type: <span class="type">UIButton</span>.<span class="type">ButtonType</span>.system)</span><br><span class="line">    b.titleLabel<span class="operator">?</span>.font <span class="operator">=</span> <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">50</span>)</span><br><span class="line">    b.autoresizingMask <span class="operator">=</span> [.flexibleWidth, .flexibleHeight]</span><br><span class="line">    b.addTarget(</span><br><span class="line">      <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(increment),</span><br><span class="line">      for: .touchUpInside</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> longPress <span class="operator">=</span> <span class="type">UILongPressGestureRecognizer</span>(</span><br><span class="line">      target: <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(sendUpdate(<span class="keyword">_</span>:))</span><br><span class="line">    )</span><br><span class="line">    b.addGestureRecognizer(longPress)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">  &#125;()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">sendUpdate</span>(<span class="keyword">_</span> <span class="params">gesture</span>: <span class="type">UILongPressGestureRecognizer</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> gesture.state <span class="operator">==</span> .began &#123;</span><br><span class="line">      <span class="keyword">if</span> onUpdate <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">        onUpdate<span class="operator">!</span>([<span class="string">&quot;count&quot;</span>: count])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">    count <span class="operator">=</span> count.intValue <span class="operator">+</span> <span class="number">1</span> <span class="keyword">as</span> <span class="type">NSNumber</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If you have to send any data to a RCTDirectEventBlock method, you must return a [AnyHashable:Any] structure. This means that you can’t pass a String or Int directly, you have to put them in a Dictionary.</p>
+<p>CounterViewManager.m</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTViewManager.h&quot;</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">interface</span> <span class="symbol">RCT_EXTERN_MODULE</span>(<span class="symbol">CounterViewManager</span>, <span class="symbol">RCTViewManager</span>)</span><br><span class="line">  <span class="symbol">RCT_EXPORT_VIEW_PROPERTY</span>(<span class="symbol">count</span>, <span class="symbol">NSNumber</span>)</span><br><span class="line">  <span class="symbol">RCT_EXPORT_VIEW_PROPERTY</span>(<span class="symbol">onUpdate</span>, <span class="symbol">RCTDirectEventBlock</span>)</span><br><span class="line">@<span class="symbol">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在 header 也要增加一行</p>
+<h2 id="Expose-methods-on-the-ViewManager"><a href="#Expose-methods-on-the-ViewManager" class="headerlink" title="Expose methods on the ViewManager"></a>Expose methods on the ViewManager</h2><p>CounterApp-Bridging-Header.h</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTBridgeModule.h&quot;</span></span><br><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTViewManager.h&quot;</span></span><br><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTEventEmitter.h&quot;</span></span><br><span class="line">#<span class="keyword">import</span> <span class="string">&quot;React/RCTUIManager.h&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>CounterViewManager.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@objc(CounterViewManager)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterViewManager</span>: <span class="title class_ inherited__">RCTViewManager</span> &#123;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requiresMainQueueSetup</span>() -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">view</span>() -&gt; <span class="type">UIView</span>! &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">CounterView</span>()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">updateFromManager</span>(<span class="keyword">_</span> <span class="params">node</span>: <span class="type">NSNumber</span>, <span class="params">count</span>: <span class="type">NSNumber</span>) &#123;</span><br><span class="line">      </span><br><span class="line">      <span class="type">DispatchQueue</span>.main.async &#123;                                <span class="comment">// 2</span></span><br><span class="line">        <span class="keyword">let</span> component <span class="operator">=</span> <span class="keyword">self</span>.bridge.uiManager.view(             <span class="comment">// 3</span></span><br><span class="line">          forReactTag: node                                     <span class="comment">// 4</span></span><br><span class="line">        ) <span class="keyword">as!</span> <span class="type">CounterView</span>                                       <span class="comment">// 5</span></span><br><span class="line">        component.update(value: count)                          <span class="comment">// 6</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CounterView.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterView</span>: <span class="title class_ inherited__">UIView</span> &#123;</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">@objc</span> <span class="keyword">var</span> onUpdate: <span class="type">RCTDirectEventBlock</span>?</span><br><span class="line">  </span><br><span class="line">   <span class="keyword">@objc</span> <span class="keyword">var</span> count: <span class="type">NSNumber</span> <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">    <span class="keyword">didSet</span> &#123;</span><br><span class="line">      button.setTitle(<span class="type">String</span>(describing: count), for: .normal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">init</span>(<span class="params">frame</span>: <span class="type">CGRect</span>) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">    <span class="keyword">self</span>.addSubview(button)</span><br><span class="line">    increment()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">requiresMainQueueSetup</span>() -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">required</span> <span class="keyword">init?</span>(<span class="params">coder</span> <span class="params">aDecoder</span>: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">    <span class="built_in">fatalError</span>(<span class="string">&quot;init(coder:) has not been implemented&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">lazy</span> <span class="keyword">var</span> button: <span class="type">UIButton</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> b <span class="operator">=</span> <span class="type">UIButton</span>.<span class="keyword">init</span>(type: <span class="type">UIButton</span>.<span class="type">ButtonType</span>.system)</span><br><span class="line">    b.titleLabel<span class="operator">?</span>.font <span class="operator">=</span> <span class="type">UIFont</span>.systemFont(ofSize: <span class="number">50</span>)</span><br><span class="line">    b.autoresizingMask <span class="operator">=</span> [.flexibleWidth, .flexibleHeight]</span><br><span class="line">    b.addTarget(</span><br><span class="line">      <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(increment),</span><br><span class="line">      for: .touchUpInside</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> longPress <span class="operator">=</span> <span class="type">UILongPressGestureRecognizer</span>(</span><br><span class="line">      target: <span class="keyword">self</span>,</span><br><span class="line">      action: <span class="keyword">#selector</span>(sendUpdate(<span class="keyword">_</span>:))</span><br><span class="line">    )</span><br><span class="line">    b.addGestureRecognizer(longPress)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">  &#125;()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">update</span>(<span class="params">value</span>: <span class="type">NSNumber</span>) &#123;</span><br><span class="line">      count <span class="operator">=</span> value</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">sendUpdate</span>(<span class="keyword">_</span> <span class="params">gesture</span>: <span class="type">UILongPressGestureRecognizer</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> gesture.state <span class="operator">==</span> .began &#123;</span><br><span class="line">      <span class="keyword">if</span> onUpdate <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">        onUpdate<span class="operator">!</span>([<span class="string">&quot;count&quot;</span>: count])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">@objc</span> <span class="keyword">func</span> <span class="title function_">increment</span>() &#123;</span><br><span class="line">    count <span class="operator">=</span> count.intValue <span class="operator">+</span> <span class="number">1</span> <span class="keyword">as</span> <span class="type">NSNumber</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>App.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Sample React Native App</span></span><br><span class="line"><span class="comment"> * https://github.com/facebook/react-native</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@format</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@flow</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">StyleSheet</span>,</span><br><span class="line">  <span class="title class_">View</span>,</span><br><span class="line">  <span class="title class_">Text</span>,</span><br><span class="line">  <span class="title class_">UIManager</span>,</span><br><span class="line">  <span class="title class_">TouchableOpacity</span>,</span><br><span class="line">  requireNativeComponent,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">CounterView</span> = <span class="title function_">requireNativeComponent</span>(<span class="string">&quot;CounterView&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123; </span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  increment = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123; <span class="attr">count</span>: <span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span> + <span class="number">1</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  update = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: e.<span class="property">nativeEvent</span>.<span class="property">count</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _onUpdate = <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">props</span>.<span class="property">onUpdate</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">props</span>.<span class="title function_">onUpdate</span>(event.<span class="property">nativeEvent</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  updateNative = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">UIManager</span>.<span class="title function_">dispatchViewManagerCommand</span>(</span><br><span class="line">      <span class="title function_">findNodeHandle</span>(<span class="variable language_">this</span>.<span class="property">counterRef</span>),                     <span class="comment">// 1</span></span><br><span class="line">      <span class="title class_">UIManager</span>[<span class="string">&quot;CounterView&quot;</span>].<span class="property">Commands</span>.<span class="property">updateFromManager</span>, <span class="comment">// 2</span></span><br><span class="line">      [<span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">count</span>]                                   <span class="comment">// 3</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">TouchableOpacity</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;[styles.wrapper,</span> <span class="attr">styles.border</span>]&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onPress</span>=<span class="string">&#123;this.increment&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;this.state.count&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">CounterView</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;</span> <span class="attr">styles.wrapper</span> &#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">count</span>=<span class="string">&#123;this.state.count&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onUpdate</span>=<span class="string">&#123;this._onUpdate&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">ref</span>=<span class="string">&#123;ref</span> =&gt;</span> this.ref = ref&#125;</span></span><br><span class="line"><span class="language-xml">        /&gt;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> styles = <span class="title class_">StyleSheet</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">container</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;stretch&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">wrapper</span>: &#123;</span><br><span class="line">    <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">&quot;center&quot;</span>, <span class="attr">justifyContent</span>: <span class="string">&quot;center&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">border</span>: &#123;</span><br><span class="line">    <span class="attr">borderColor</span>: <span class="string">&quot;#eee&quot;</span>, <span class="attr">borderBottomWidth</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">button</span>: &#123;</span><br><span class="line">    <span class="attr">fontSize</span>: <span class="number">50</span>, <span class="attr">color</span>: <span class="string">&quot;orange&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h1><p><a target="_blank" rel="noopener" href="https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-2-ui-components-907767123d9e#2389">Swift in React Native</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2019-12-06, 17:13:39</p>
+        <p><span>最后更新:</span>2024-07-26, 00:40:45</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/12/06/ReactNative-ExportComponentUI/" title="React Native-ExportComponentUI">https://horsekitlin.github.io/2019/12/06/ReactNative-ExportComponentUI/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://horsekitlin.github.io/2019/12/06/ReactNative-ExportComponentUI/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/09/09/SocketCluster-Authorization/">
+                    SocketCluster-Authorization
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/06/04/Moleculer-Start/">
+                    Moleculer-Start
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup"><span class="toc-number">1.</span> <span class="toc-text">Setup</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-expose-a-Swift-UI-Component-to-JS"><span class="toc-number">2.</span> <span class="toc-text">How to expose a Swift UI Component to JS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B-Swift-ViewManager"><span class="toc-number">2.1.</span> <span class="toc-text">建立一個 Swift ViewManager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-the-Objective-C-Bridging-Header"><span class="toc-number">2.1.1.</span> <span class="toc-text">Configure the Objective-C Bridging Header</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E5%80%8B-Obj-C-%E6%AA%94%E6%A1%88"><span class="toc-number">2.2.</span> <span class="toc-text">新增一個 Obj-C 檔案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-your-Component-from-JS"><span class="toc-number">2.3.</span> <span class="toc-text">Access your Component from JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-swiftUI"><span class="toc-number">2.4.</span> <span class="toc-text">建立 swiftUI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-send-props-to-a-Swift-Component"><span class="toc-number">2.5.</span> <span class="toc-text">How to send props to a Swift Component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Expose-a-Component-Event-Emitter"><span class="toc-number">2.6.</span> <span class="toc-text">Expose a Component Event Emitter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Expose-methods-on-the-ViewManager"><span class="toc-number">2.7.</span> <span class="toc-text">Expose methods on the ViewManager</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">參考文章</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <!-- <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div> -->
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"React Native-ExportComponentUI　| 湯瑪士的部落格　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/09/09/SocketCluster-Authorization/" title="上一篇: SocketCluster-Authorization">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/06/04/Moleculer-Start/" title="下一篇: Moleculer-Start">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/10/01/Day-06-Deploy-https-website/">Day-06-Deploy-https-website-part01</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/20/Day-05-ingress-controller/">Day-05-ingress-controller</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/19/Day-04-Deploy-to-cluster/">Day-04-Deploy-to-cluster</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/18/Day-03-Static-Site-Container/">Day-03-Container</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-02-Express%E8%88%87Docker/">Day-02-Express與Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/09/15/Day-01-Docker%E7%B0%A1%E4%BB%8B/">Day-01-Docker簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/26/ReactNative-fastlane-Android/">React Native-fastlane-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/React-Native-Fastlane-IOS/">React-Native-Fastlane-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/09/React-create-rxdb-example/">React-create-rxdb-example</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartII/">React-Native-Cache-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/07/React-Native-Cache-PartI/">React Native Cache PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-Android/">React-Native-Notification-Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/04/React-Native-Notification-IOS/">React-Native-Notification-IOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/22/Socketcluster-client-AuthorizationEngine/">Socketcluster-client-AuthorizationEngine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-scc/">SocketCluster-scc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/21/SocketCluster-Storage/">SociekCluster-Storage</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/18/Redux-Part-III/">Redux-Part-III</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/17/Redux-Part-II/">Redux-Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/Redux-Part-I/">Redux-Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-Navigation/">React-Native-Navigation</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/15/React-Native-connect-server/">React-Native-connect-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-variable/">Java-Spring-Boot-variable</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/11/Java-Spring-Boot-Initial/">Java-Spring-Boot-Initial</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Consumer/">SocketCluster-Consumer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/Socketcluster-Cluster-initial/">SocketCluster Cluster initial.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/09/SocketCluster-Authorization/">SocketCluster-Authorization</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/06/ReactNative-ExportComponentUI/">React Native-ExportComponentUI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/04/Moleculer-Start/">Moleculer-Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/24/RN-Platform/">React Native-Platform</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/07/Truffle-pet-user-interface/">Truffle-pet-user-interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/RN-JestInReactNative/">RN-JestInReactNative</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/RN-code-push/">RN-code-push</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/29/material-ui-themes/">material-ui-themes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/ReasonReact-lifeCycle/">ReasonReact-LifeCycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/ReasonReact-auto-deploy/">ReasonReact-auto-deploy</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/ReasonReact-publish-package/">ReasonReact-publish-package</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII-1/">ReasonReact-Todo-Tutorial-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartII/">ReasonReact-Todo-Tutorial-PartIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/10/ReasonReact-Todo-Tutorial-PartI/">ReasonReact-Todo-Tutorial-PartI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/Reason-ExternalPromiseAPI/">Reason-ExternalPromiseAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Component/">ReasonReact-Component</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/04/ReasonReact-Helloworld/">ReasonReact-Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartII/">Reason-Create-NPM-Package-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/02/Reason-Create-NPM-Package-PartI/">Reason Create NPM Package Part-I</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/29/BuckleScript-Function/">BuckleScript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/Express-MongoDB-PartII/">Express-MongoDB-PartII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-MongoDB/">Express-MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Express-Middleware/">Express-Middleware</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/Reason-BasicType-Module/">Reason-BasicType-Module</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/26/Express-Router/">Express-Router</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/21/Express-helloworld-API/">Express-helloworld-API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/20/BasicType-OptionsAndSomeAndNone/">BasicType-OptionsAndSomeAndNone</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/19/BuckleScript-Object/">BuckleScript-Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/14/BuckleScript-Best-Friend/">BuckleScript-Best-Friend</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/11/Reason-BasicTypeIII/">Reason-BasicTypeIII</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/Reason-BasicTypeII/">Reason-BasicType Part-II</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/03/Reason-BasicType/">Reason-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/Reason%E7%B0%A1%E4%BB%8B%E8%88%87Helloworld/">Reason簡介與Helloworld</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/Truffle-pet-demo/">truffle pet demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Javascript-HighOrderFunction/">Javascript-High Order Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/02/Redux-compose/">Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/RN-JestErrorWithRNRouterFlux/">React Native import Image Error</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/Typescript-JSX/">Typescript-JSX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/TypeScript-Generic/">TypeScript-Generic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/Typescript-Function/">Typescript-Function</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/Typescript-Classes/">Typescript-Classes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/Typescript-Interfaces/">Typescript-Interfaces</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/TypeScript-VariableDecarations/">TypeScript-VariableDecarations</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/Leetcode-Q8/">Leetcode-Q8</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/Typescript-BasicType/">Typescript-BasicType</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/TypeScript-ReactAndWebpack/">TypeScript-ReactAndWebpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Typescript-MigratingFromJavascript/">Typescript-Migrating from Javascript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/Typescript-Gulp/">TypeScriptWithGulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/Typescript-TypescriptIn5Minutes/">TypeScript-TypeScriptIn5Minutes</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/Leetcode-Q7/">Leedcode-Q7</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/31/NPM-Publish-With-Gulp/">NPM publish with gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/ReactUnitestWithJest/">ReactUnitestWithJest</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/Python-Decorator/">Python-Decorator</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/Debugging-Nodejs-With-VSCode/">Debugging-Nodejs-With-VSCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/31/NodeDesignPatten-06/">NodeDesignPatten-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/RabbitMQ-Routing/">RabbitMQ-Routing</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/RabbitMQ-PublishAndSubscribe/">RabbitMQ-PublishAndSubscribe</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/24/RabbitMQ-WorkQueue/">RabbitMQ-WorkQueue</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/RabbitMQ-Install/">RabbitMQ-Install</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q6/">Leetcode-Q6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/Leetcode-Q5/">Leetcode-Q5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/Leetcode-Q4/">Leetcode-Q4</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/Leetcode-Q3/">Leetcode-Q3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/Leetcode-Q2/">Leetcode-Q2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/03/Leetcode-Q1/">Leetcode-Q1</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/29/NodeDesignPatten-01/">NodeDesignPatten-01</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2024 Tomas Lin
+            </div>
+            <!-- <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div> -->
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
