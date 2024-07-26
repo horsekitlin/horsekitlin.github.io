@@ -1,11 +1,12 @@
 ---
 title: Day-02-Express與Docker
+author: TomasLin
 tags:
   - DevOps
   - IThome2023
   - Docker
   - Kubernetes
-date: 2023-09-15 17:09:21
+date: 2023-09-15
 categories:
   - IThome2023鐵人賽
 ---

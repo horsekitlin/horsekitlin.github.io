@@ -1,10 +1,11 @@
 ---
 title: RN-JestInReactNative
+author: TomasLin
 tags:
   - React Native
   - Javascript
   - React
-date: 2019-01-08 19:55:46
+date: 2019-01-08
 categories:
   - React Native
 ---

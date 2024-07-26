@@ -1,5 +1,6 @@
 ---
 title: Promise 的那些事
+author: TomasLin
 categories: Javascript
 tags: 
   - Javascript

@@ -1,5 +1,6 @@
 ---
 title: Express-MongoDB
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-27 19:53:39
+date: 2018-10-27
 ---
 
 # MongoDB

@@ -1,5 +1,6 @@
 ---
 title: material-ui-typography
+author: TomasLin
 tags:
   - Css
   - Themes

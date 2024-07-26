@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ-Routing
-date: 2017-05-27 17:29:41
+author: TomasLin
+date: 2017-05-27
 tags:
   - MessageQueue
   - Nodejs
@@ -35,7 +36,7 @@ categories: RabbitMQ
 
 這些字也不是隨意選定
 
-通常都代表著 features 
+通常都代表著 features
 
 Example:
 

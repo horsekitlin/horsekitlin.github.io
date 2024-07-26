@@ -1,12 +1,13 @@
 ---
 title: Reason Create NPM Package Part-I
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-11-02 08:47:49
+date: 2018-11-02
 ---
 
 # 使用 semver

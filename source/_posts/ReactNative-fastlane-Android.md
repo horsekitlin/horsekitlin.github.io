@@ -1,9 +1,10 @@
 ---
 title: React Native-fastlane-Android
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2020-12-26 02:19:46
+date: 2020-12-26
 categories:
   - React Native
 ---

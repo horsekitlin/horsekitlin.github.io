@@ -1,12 +1,13 @@
 ---
 title: Reason-BasicType Part-II
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-10-10 23:49:54
+date: 2018-10-10
 ---
 
 # Basic Type

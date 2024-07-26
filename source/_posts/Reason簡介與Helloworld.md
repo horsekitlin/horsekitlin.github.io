@@ -1,12 +1,13 @@
 ---
 title: Reason簡介與Helloworld
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-10-01 11:51:55
+date: 2018-10-01
 ---
 
 # What is Reason

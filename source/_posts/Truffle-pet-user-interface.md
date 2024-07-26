@@ -1,9 +1,10 @@
 ---
 title: Truffle-pet-user-interface
+author: TomasLin
 tags:
   - Truffle
   - Sodility
-date: 2019-02-07 22:55:11
+date: 2019-02-07
 categories: Block Chain
 ---
 

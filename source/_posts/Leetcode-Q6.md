@@ -1,6 +1,7 @@
 ---
 title: Leetcode-Q6
-date: 2017-05-09 19:34:15
+author: TomasLin
+date: 2017-05-09
 tags:
     - Javascript
     - Leetcode

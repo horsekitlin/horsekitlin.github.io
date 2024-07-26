@@ -1,5 +1,6 @@
 ---
 title: Express-Router
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-26 21:39:20
+date: 2018-10-26
 ---
 
 # Router

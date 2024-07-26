@@ -1,6 +1,7 @@
 ---
 title: TypeScript-VariableDecarations
-date: 2017-11-02 14:49:29
+author: TomasLin
+date: 2017-11-02
 categories: Javascript
 tags:
   - Javascript

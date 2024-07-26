@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-LifeCycle
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-11-13 22:50:07
+date: 2018-11-13
 ---
 
 # LifeCycle

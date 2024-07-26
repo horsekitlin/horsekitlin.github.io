@@ -1,11 +1,12 @@
 ---
 title: Day-06-Deploy-https-website-part01
+author: TomasLin
 tags:
   - DevOps
   - IThome2023
   - Docker
   - Kubernetes
-date: 2023-10-01 14:54:00
+date: 2023-10-01
 categories:
   - IThome2023鐵人賽
 ---

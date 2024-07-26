@@ -1,6 +1,7 @@
 ---
 title: RN-code-push
-date: 2019-01-02 11:06:03
+author: TomasLin
+date: 2019-01-02
 tags:
   - React Native
   - Javascript

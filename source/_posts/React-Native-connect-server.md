@@ -1,12 +1,13 @@
 ---
 title: React-Native-connect-server
+author: TomasLin
 tags:
   - React Native
   - SocketCluster
   - Nodejs
   - React
   - ithome 12
-date: 2020-09-15 00:56:00
+date: 2020-09-15
 categories:
   - SocketCluster
 ---

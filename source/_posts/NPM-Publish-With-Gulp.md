@@ -1,6 +1,7 @@
 ---
 title: NPM publish with gulp
-date: 2017-08-31 09:01:45
+author: TomasLin
+date: 2017-08-31
 tags: 
   - Javascript
   - Nodejs

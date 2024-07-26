@@ -1,9 +1,10 @@
 ---
 title: SocketCluster-Consumer
+author: TomasLin
 tags:
   - Nodejs
   - SocketCluster
-date: 2020-09-09 01:08:25
+date: 2020-09-09
 categories:
   - Nodejs
 ---

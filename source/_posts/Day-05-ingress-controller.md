@@ -1,11 +1,12 @@
 ---
 title: Day-05-ingress-controller
+author: TomasLin
 tags:
   - DevOps
   - IThome2023
   - Docker
   - Kubernetes
-date: 2023-09-20 18:01:33
+date: 2023-09-20
 categories:
   - IThome2023鐵人賽
 ---

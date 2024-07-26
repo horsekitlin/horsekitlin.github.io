@@ -1,5 +1,6 @@
 ---
 title: BasicType-OptionsAndSomeAndNone
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-20 23:12:05
+date: 2018-10-20
 ---
 
 # Null 和 Undefined 和 Option

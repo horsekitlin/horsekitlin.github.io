@@ -1,8 +1,9 @@
 ---
 title: Map
+author: TomasLin
 tags:
   - null
-date: 2018-02-02 17:59:27
+date: 2018-02-02
 categories: Javascript, React
 ---
 

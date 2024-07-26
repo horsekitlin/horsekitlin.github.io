@@ -1,9 +1,10 @@
 ---
 title: React Native-ExportComponentUI
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2019-12-06 17:13:39
+date: 2019-12-06
 categories:
   - React Native
 ---

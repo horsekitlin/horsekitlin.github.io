@@ -1,11 +1,12 @@
 ---
 title: Day-01-Docker簡介
+author: TomasLin
 tags:
   - DevOps
   - IThome2023
   - Docker
   - Kubernetes
-date: 2023-09-15 10:10:43
+date: 2023-09-15
 categories:
   - IThome2023鐵人賽
 ---

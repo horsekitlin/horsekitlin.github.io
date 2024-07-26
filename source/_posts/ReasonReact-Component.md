@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-Component
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - React
 categories:
   - Reason
-date: 2018-11-04 17:17:34
+date: 2018-11-04
 ---
 
 

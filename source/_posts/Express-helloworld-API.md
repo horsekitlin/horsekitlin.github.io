@@ -1,5 +1,6 @@
 ---
 title: Express-helloworld-API
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-21 22:28:33
+date: 2018-10-21
 ---
 
 # Express API

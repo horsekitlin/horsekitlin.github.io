@@ -1,12 +1,13 @@
 ---
 title: Reason-BasicType-Module
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-10-27 18:11:14
+date: 2018-10-27
 ---
 
 

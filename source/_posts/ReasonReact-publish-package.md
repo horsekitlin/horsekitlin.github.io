@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-publish-package
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - React
 categories:
   - Reason
-date: 2018-11-11 22:56:56
+date: 2018-11-11
 ---
 
 # Initial Project

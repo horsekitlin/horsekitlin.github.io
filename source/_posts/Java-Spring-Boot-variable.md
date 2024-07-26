@@ -1,9 +1,10 @@
 ---
 title: Java-Spring-Boot-variable
+author: TomasLin
 tags:
   - Java
   - spring-boot
-date: 2020-09-11 14:42:52
+date: 2020-09-11
 categories:
   - Java
 ---

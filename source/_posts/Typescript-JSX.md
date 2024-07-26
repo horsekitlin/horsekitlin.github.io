@@ -1,11 +1,12 @@
 ---
 title: Typescript-JSX
+author: TomasLin
 categories: Javascript
 tags:
   - Javascript
   - Typescript
   - Translate
-date: 2017-11-07 17:35:35
+date: 2017-11-07
 ---
 
 # JSX

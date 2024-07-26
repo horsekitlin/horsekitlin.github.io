@@ -1,6 +1,7 @@
 ---
 title: Typescript-Migrating from Javascript
-date: 2017-10-30 17:33:48
+author: TomasLin
+date: 2017-10-30
 categories: Javascript
 tags:
   - Javascript

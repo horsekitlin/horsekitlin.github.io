@@ -1,12 +1,13 @@
 ---
 title: Reason-ExternalPromiseAPI
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-11-04 17:18:26
+date: 2018-11-04
 ---
 
 

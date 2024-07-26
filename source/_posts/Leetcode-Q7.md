@@ -1,6 +1,7 @@
 ---
 title: Leedcode-Q7
-date: 2017-10-23 13:26:25
+author: TomasLin
+date: 2017-10-23
 tags:
     - Javascript
     - Leetcode

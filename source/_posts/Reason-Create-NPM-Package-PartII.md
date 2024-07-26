@@ -1,12 +1,13 @@
 ---
 title: Reason-Create-NPM-Package-PartII
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
   - Reason
 categories:
   - Reason
-date: 2018-11-02 21:21:54
+date: 2018-11-02
 ---
 
 # 建立 Semver 的類別

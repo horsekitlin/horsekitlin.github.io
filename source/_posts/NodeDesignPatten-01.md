@@ -1,9 +1,10 @@
 ---
 title: NodeDesignPatten-01
+author: TomasLin
 tags:
   - Nodejs
   - DesignPatten
-date: 2017-04-29 15:18:12
+date: 2017-04-29
 categories: Designpatten
 ---
 

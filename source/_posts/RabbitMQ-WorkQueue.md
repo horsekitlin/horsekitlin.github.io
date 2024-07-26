@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ-WorkQueue
-date: 2017-05-24 19:48:37
+author: TomasLin
+date: 2017-05-24
 tags:
   - MessageQueue
   - Nodejs

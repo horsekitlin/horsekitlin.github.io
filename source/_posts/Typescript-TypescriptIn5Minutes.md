@@ -1,6 +1,7 @@
 ---
 title: TypeScript-TypeScriptIn5Minutes
-date: 2017-10-27 16:13:03
+author: TomasLin
+date: 2017-10-27
 categories: Javascript
 tags:
   - Javascript

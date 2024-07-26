@@ -1,9 +1,10 @@
 ---
 title: SocketCluster Cluster initial.md
+author: TomasLin
 tags:
   - Nodejs
   - SocketCluster
-date: 2020-09-09 01:05:05
+date: 2020-09-09
 categories:
   - Nodejs
 ---

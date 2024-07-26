@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ-Install
-date: 2017-05-22 15:05:41
+author: TomasLin
+date: 2017-05-22
 tags: 
   - MessageQueue
   - Nodejs

@@ -1,6 +1,7 @@
 ---
 title: Leetcode-Q8
-date: 2017-11-02 01:04:58
+author: TomasLin
+date: 2017-11-02
 tags:
     - Javascript
     - Leetcode

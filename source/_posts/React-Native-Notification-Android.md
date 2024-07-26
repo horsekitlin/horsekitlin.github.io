@@ -1,9 +1,10 @@
 ---
 title: React-Native-Notification-Android
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2020-10-04 21:27:22
+date: 2020-10-04
 categories:
   - React Native
 ---

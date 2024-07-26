@@ -1,5 +1,6 @@
 ---
 title: BuckleScript-Function
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-29 22:15:50
+date: 2018-10-29
 ---
 
 

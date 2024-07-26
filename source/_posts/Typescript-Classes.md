@@ -1,6 +1,7 @@
 ---
 title: Typescript-Classes
-date: 2017-11-04 10:34:56
+author: TomasLin
+date: 2017-11-04
 categories: Javascript
 tags:
   - Javascript

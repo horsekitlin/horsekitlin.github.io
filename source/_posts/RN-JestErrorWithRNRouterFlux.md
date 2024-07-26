@@ -1,10 +1,11 @@
 ---
 title: React Native import Image Error
+author: TomasLin
 tags:
   - React Native
   - Javascript
   - React
-date: 2018-01-05 23:07:08
+date: 2018-01-05
 categories:
   - React Native
 ---

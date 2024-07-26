@@ -1,5 +1,6 @@
 ---
 title: BuckleScript-Best-Friend
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-14 23:16:34
+date: 2018-10-14
 ---
 
 # BuckleScript

@@ -1,9 +1,10 @@
 ---
 title: React-Native-Cache-PartII
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2020-10-07 00:12:46
+date: 2020-10-07
 categories:
   - React Native
 ---

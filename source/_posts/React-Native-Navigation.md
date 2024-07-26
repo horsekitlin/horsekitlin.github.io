@@ -1,8 +1,9 @@
 ---
 title: React-Native-Navigation
+author: TomasLin
 tags:
   - React Native
-date: 2020-09-15 01:25:28
+date: 2020-09-15
 categories:
   - React Native
 ---

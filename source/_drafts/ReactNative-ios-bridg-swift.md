@@ -3,7 +3,7 @@ title: React Native-ios-bridg-swift
 tags:
   - Javascript
   - React Native
-date: 2019-11-27 13:26:00
+date: 2019-11-27
 categories:
   - React Native
 ---

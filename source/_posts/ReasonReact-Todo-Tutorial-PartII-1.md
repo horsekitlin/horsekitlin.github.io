@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-Todo-Tutorial-PartII
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - React
 categories:
   - Reason
-date: 2018-11-10 00:19:35
+date: 2018-11-10
 ---
 
 # Action

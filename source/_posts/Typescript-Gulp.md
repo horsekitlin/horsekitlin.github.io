@@ -1,6 +1,7 @@
 ---
 title: TypeScriptWithGulp
-date: 2017-10-29 22:21:39
+author: TomasLin
+date: 2017-10-29
 categories: Javascript
 tags:
   - Javascript

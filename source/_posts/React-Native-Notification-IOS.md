@@ -1,9 +1,10 @@
 ---
 title: React-Native-Notification-IOS
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2020-10-04 19:52:17
+date: 2020-10-04
 categories:
   - React Native
 ---

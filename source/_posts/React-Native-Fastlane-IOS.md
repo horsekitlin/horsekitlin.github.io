@@ -1,9 +1,10 @@
 ---
 title: React-Native-Fastlane-IOS
+author: TomasLin
 tags:
   - Javascript
   - React Native
-date: 2020-10-12 21:16:21
+date: 2020-10-12
 categories:
   - React Native
 ---

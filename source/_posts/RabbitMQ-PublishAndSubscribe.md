@@ -1,6 +1,7 @@
 ---
 title: RabbitMQ-PublishAndSubscribe
-date: 2017-05-26 00:00:15
+author: TomasLin
+date: 2017-05-26
 tags:
   - MessageQueue
   - Nodejs

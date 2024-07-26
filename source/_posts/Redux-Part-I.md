@@ -1,9 +1,10 @@
 ---
 title: Redux-Part-I
+author: TomasLin
 tags:
   - React
   - Redux 
-date: 2020-09-16 01:49:37
+date: 2020-09-16
 categories:
   - React
 ---

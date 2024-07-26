@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-auto-deploy
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-11-12 16:33:21
+date: 2018-11-12
 ---
 
 # Work With Drone

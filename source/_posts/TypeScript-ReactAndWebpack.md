@@ -1,6 +1,7 @@
 ---
 title: TypeScript-ReactAndWebpack
-date: 2017-10-31 16:28:11
+author: TomasLin
+date: 2017-10-31
 categories: Javascript
 tags:
   - Javascript

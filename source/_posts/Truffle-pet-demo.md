@@ -1,9 +1,10 @@
 ---
 title: truffle pet demo
+author: TomasLin
 tags:
   - Truffle
   - Sodility
-date: 2018-05-05 13:54:23
+date: 2018-05-05
 categories: Block Chain
 ---
 

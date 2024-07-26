@@ -1,5 +1,6 @@
 ---
 title: ReasonReact-Helloworld
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - React
 categories:
   - Reason
-date: 2018-11-04 12:39:42
+date: 2018-11-04
 ---
 
 

@@ -1,12 +1,13 @@
 ---
 title: React Native-Platform
+author: TomasLin
 tags:
   - React Native
   - Javascript
   - React
 categories:
   - React Native
-date: 2019-02-24 23:44:45
+date: 2019-02-24
 ---
 
 # Platform

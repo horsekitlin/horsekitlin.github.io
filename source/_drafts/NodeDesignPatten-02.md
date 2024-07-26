@@ -1,5 +1,6 @@
 ---
 title: NodeDesignPatten-02
+author: TomasLin
 tags: [Nodejs, DesignPatten]
 ---
 

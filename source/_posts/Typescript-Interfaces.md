@@ -1,6 +1,7 @@
 ---
 title: Typescript-Interfaces
-date: 2017-11-03 13:50:21
+author: TomasLin
+date: 2017-11-03
 categories: Javascript
 tags:
   - Javascript

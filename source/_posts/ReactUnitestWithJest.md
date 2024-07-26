@@ -1,6 +1,7 @@
 ---
 title: ReactUnitestWithJest
-date: 2017-07-31 12:23:09
+author: TomasLin
+date: 2017-07-31
 categories: Javascript
 tags: 
   - React

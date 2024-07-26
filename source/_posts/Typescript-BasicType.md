@@ -1,6 +1,7 @@
 ---
 title: Typescript-BasicType
-date: 2017-10-31 21:56:06
+author: TomasLin
+date: 2017-10-31
 categories: Javascript
 tags:
   - Javascript

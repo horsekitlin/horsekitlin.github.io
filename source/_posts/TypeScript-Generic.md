@@ -1,11 +1,12 @@
 ---
 title: TypeScript-Generic
+author: TomasLin
 categories: Javascript
 tags:
   - Javascript
   - Typescript
   - Translate
-date: 2017-11-06 21:44:38
+date: 2017-11-06
 ---
 
 # 泛型

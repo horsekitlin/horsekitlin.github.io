@@ -1,6 +1,7 @@
 ---
 title: Typescript-Function
-date: 2017-11-05 14:00:00
+author: TomasLin
+date: 2017-11-05
 categories: Javascript
 tags:
   - Javascript

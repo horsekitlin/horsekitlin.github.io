@@ -1,5 +1,6 @@
 ---
 title: BuckleScript-Object
+author: TomasLin
 tags:
   - Javascript
   - IThome2018
@@ -7,7 +8,7 @@ tags:
   - BuckleScript
 categories:
   - Reason
-date: 2018-10-19 15:49:47
+date: 2018-10-19
 ---
 
 # Bukle Script Object

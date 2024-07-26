@@ -1,9 +1,10 @@
 ---
 title: Javascript-High Order Function
+author: TomasLin
 tags:
   - Javascript
   - FunctionPrograming
-date: 2018-02-02 23:14:11
+date: 2018-02-02
 categories: Javascript
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Day-04-Deploy-to-cluster
+author: TomasLin
 tags:
   - DevOps
   - IThome2023
   - Docker
   - Kubernetes
-date: 2023-09-19 20:13:54
+date: 2023-09-19
 categories:
   - IThome2023鐵人賽
 ---

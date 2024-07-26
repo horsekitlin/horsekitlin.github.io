@@ -1,9 +1,10 @@
 ---
 title: Socketcluster-client-AuthorizationEngine
+author: TomasLin
 tags:
   - SocketCluster
   - Nodejs
-date: 2020-09-22 17:45:10
+date: 2020-09-22
 categories:
   - Nodejs
 ---
