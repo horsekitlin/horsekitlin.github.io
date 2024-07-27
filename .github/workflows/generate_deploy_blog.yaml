@@ -25,13 +25,29 @@ jobs:
       uses: borales/actions-yarn@v4
       with:
         cmd: install
-    - name: Hexo Deploy
-      id: deploy
-      uses: sma11black/hexo-action@v1.0.4
+    - name: Hexo
+      run: |
+        pandoc --version
+        npm i -g hexo-cli
+        npm i
+        hexo clean && hexo g
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
-        deploy_key: ${{ secrets.DEPLOY_BLOG_KEY }}
-        # user_name: <YOUR_GITHUB_USERNAME>  # (or delete this input setting to use bot account)
-        # user_email: <YOUR_GITHUB_EMAIL>    # (or delete this input setting to use bot account)
+        ssh-key: ${{ secrets.DEPLOY_BLOG_KEY }}
+        repository-name: horsekitlin/horsekitlin.github.io
+        branch: gh-pages # The branch the action should deploy to.
+        folder: .deploy_git # The folder the action should deploy.
+        single-commit: true
+        commit-message: "Deploy by source"
+
+    # - name: Hexo Deploy
+    #   id: deploy
+    #   uses: sma11black/hexo-action@v1.0.4
+    #   with:
+    #     deploy_key: ${{ secrets.DEPLOY_BLOG_KEY }}
+    #     # user_name: <YOUR_GITHUB_USERNAME>  # (or delete this input setting to use bot account)
+    #     # user_email: <YOUR_GITHUB_EMAIL>    # (or delete this input setting to use bot account)
     - name: Get the output
       run: |
         echo "${{ steps.deploy.outputs.notify }}"
