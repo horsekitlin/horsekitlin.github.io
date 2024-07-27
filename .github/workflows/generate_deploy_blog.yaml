@@ -7,7 +7,7 @@ on:
 
 jobs:
   generate-static-blog:
-    runs-on: mac-mini-build
+    runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
