@@ -23,6 +23,7 @@ jobs:
         yarn global add hexo-cli
         yarn install
         hexo clean && hexo g
+        ls -al
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
