@@ -10,9 +10,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: 
-      image: alpine:latest
-      options: --user root
     name: Deploy Hexo Blog
     steps:
     - name: Checkout
