@@ -30,7 +30,7 @@ jobs:
         ssh-key: ${{ secrets.DEPLOY_BLOG_KEY }}
         repository-name: horsekitlin/horsekitlin.github.io
         branch: gh-pages # The branch the action should deploy to.
-        folder: .deploy_git # The folder the action should deploy.
+        folder: public # The folder the action should deploy.
         single-commit: true
         commit-message: "Deploy by source"
 
