@@ -4,33 +4,43 @@ on:
   push:
     branches:
       - master
+env:
+  TZ: 'Asia/Taipei'
 
 jobs:
-  generate-static-blog:
+  build:
     runs-on: ubuntu-latest
+    name: Deploy Hexo Blog
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: unlock-keychain-db
-        run: |
-          yarn install
-          npx hexo generate
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true # Checkout private submodules(themes or something else).
+    - name: Timezone set Asia/Taipei
+      run: sudo timedatectl set-timezone 'Asia/Taipei'
+    - name: Hexo
+      run: |
+        yarn global add hexo-cli
+        yarn install
+        hexo clean && hexo g
+        ls -al
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        ssh-key: ${{ secrets.DEPLOY_BLOG_KEY }}
+        repository-name: horsekitlin/horsekitlin.github.io
+        branch: gh-pages # The branch the action should deploy to.
+        folder: public # The folder the action should deploy.
+        single-commit: true
+        commit-message: "Deploy by source"
 
-      # - name: Log in to Docker Hub
-      #   uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      # - name: Build and push Docker image
-      #   id: push
-      #   uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-      #   with:
-      #     context: ./pkg/${{ env.IMAGE_NAME }}/
-      #     file: ./pkg/${{ env.IMAGE_NAME }}/Dockerfile
-      #     push: true
-      #     tags: passon/${{ env.IMAGE_NAME }}:latest
-  
+    # - name: Hexo Deploy
+    #   id: deploy
+    #   uses: sma11black/hexo-action@v1.0.4
+    #   with:
+    #     deploy_key: ${{ secrets.DEPLOY_BLOG_KEY }}
+    #     # user_name: <YOUR_GITHUB_USERNAME>  # (or delete this input setting to use bot account)
+    #     # user_email: <YOUR_GITHUB_EMAIL>    # (or delete this input setting to use bot account)
+    - name: Get the output
+      run: |
+        echo "${{ steps.deploy.outputs.notify }}"
