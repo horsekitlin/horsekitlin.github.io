@@ -18,15 +18,10 @@ jobs:
         submodules: true # Checkout private submodules(themes or something else).
     - name: Timezone set Asia/Taipei
       run: sudo timedatectl set-timezone 'Asia/Taipei'
-    - name: Yarn Install
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install
     - name: Hexo
       run: |
-        pandoc --version
-        npm i -g hexo-cli
-        npm i
+        yarn global add hexo-cli
+        yarn install
         hexo clean && hexo g
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.3.3
