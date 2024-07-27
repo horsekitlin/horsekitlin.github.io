@@ -4,33 +4,31 @@ on:
   push:
     branches:
       - master
+env:
+  TZ: 'Asia/Taipei'
 
 jobs:
-  generate-static-blog:
+  build:
     runs-on: ubuntu-latest
+    name: Deploy Hexo Blog
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: unlock-keychain-db
-        run: |
-          yarn install
-          npx hexo generate
-
-      # - name: Log in to Docker Hub
-      #   uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      # - name: Build and push Docker image
-      #   id: push
-      #   uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-      #   with:
-      #     context: ./pkg/${{ env.IMAGE_NAME }}/
-      #     file: ./pkg/${{ env.IMAGE_NAME }}/Dockerfile
-      #     push: true
-      #     tags: passon/${{ env.IMAGE_NAME }}:latest
-  
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        submodules: true # Checkout private submodules(themes or something else).
+    - name: Timezone set Asia/Taipei
+      run: sudo timedatectl set-timezone 'Asia/Taipei'
+    - name: Yarn Install
+      uses: borales/actions-yarn@v2.3.0
+      with:
+        cmd: install
+    - name: Hexo Deploy
+      id: deploy
+      uses: sma11black/hexo-action@v1.0.3
+      with:
+        deploy_key: ${{ secrets.DEPLOY_KEY }}
+        # user_name: <YOUR_GITHUB_USERNAME>  # (or delete this input setting to use bot account)
+        # user_email: <YOUR_GITHUB_EMAIL>    # (or delete this input setting to use bot account)
+    - name: Get the output
+      run: |
+        echo "${{ steps.deploy.outputs.notify }}"
