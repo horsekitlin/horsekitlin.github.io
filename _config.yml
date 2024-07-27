@@ -109,4 +109,4 @@ theme: yelee
 deploy:
   type: git
   repo: git@github.com:horsekitlin/horsekitlin.github.io.git
-  branch: master
+  branch: gh-pages
