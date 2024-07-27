@@ -26,7 +26,7 @@ jobs:
       id: deploy
       uses: sma11black/hexo-action@v1.0.3
       with:
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
+        deploy_key: ${{ secrets.DEPLOY_BLOG_KEY }}
         # user_name: <YOUR_GITHUB_USERNAME>  # (or delete this input setting to use bot account)
         # user_email: <YOUR_GITHUB_EMAIL>    # (or delete this input setting to use bot account)
     - name: Get the output
