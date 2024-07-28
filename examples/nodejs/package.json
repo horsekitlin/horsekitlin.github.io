@@ -1,0 +1,12 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "author": "Tomas",
+  "license": "MIT",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.6.7"
+  }
+}
