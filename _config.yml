@@ -5,13 +5,25 @@
 # Site
 title: 湯瑪士的部落格
 subtitle: 技術手扎！不定期更新
-description: ''
+description: "湯瑪士的技術部落格，分享軟體開發心得、程式設計技巧和實用工具。專注於 Node.js、Discord 機器人開發以及各種現代網頁技術。不定期更新各種技術探索和專案經驗，記錄學習歷程與解決方案。"
 keywords:
 
 author: Tomas Lin
+avatar: /img/avatar.png
+favicon: /img/avatar.png
 language: zh-tw
 timezone: Asia/Taipei
-
+# Header | 主菜单
+## About Page: `hexo new page about`
+## Tags Cloud Page: `hexo new page tags`
+menu:
+  # 主頁: /
+  主頁: /archives/
+  所有文章: /archives/
+  #随笔: /tags/随笔
+  標籤: /tags/
+  關於我: /about/
+  
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://horsekitlin.github.io/
@@ -99,7 +111,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yelee
+theme: stellar
 # theme: landscape
 # theme: next
 
@@ -110,3 +122,6 @@ deploy:
   type: git
   repo: git@github.com:horsekitlin/horsekitlin.github.io.git
   branch: master
+  type: git
+  repo: git@github.com:horsekitlin/horsekitlin.github.io.git
+  branch: gh-pages

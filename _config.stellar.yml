@@ -1,0 +1,41 @@
+open_graph:
+  enable: true
+  twitter_id: # for open_graph meta
+article:
+  type: tech # tech/story
+  auto_cover: false
+  related_posts:
+    enable: false
+    title: 您可能感興趣的文章
+  license: '本文採用 [署名-非商業性使用-相同方式共享 4.0 國際](https://creativecommons.org/licenses/by-nc-sa/4.0/) 許可協議，轉載請註明出處。'
+footer:
+  sitemap:
+    # '博客':
+    #   - '[近期](/)'
+    #   - '[分类](/categories/)'
+    #   - '[标签](/tags/)'
+    #   - '[归档](/archives/)'
+    # '项目':
+    #   - '[开源库](/)'
+    # '社交':
+    #   - '[友链](/)'
+    #   - '[留言板](/)'
+    # '更多':
+    #   - '[关于本站](/)'
+    #   - '[GitHub](/)'
+  content: | # 支持 Markdown 格式
+    本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主題創建。
+    本博客所有文章除特別聲明外，均採用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 許可協議，轉載請註明出處。
+  social:
+    github:
+      icon: '<img src="/assets/placeholder/social/08a41b181ce68.svg"/>'
+      url: https://github.com/horsekitlin
+    # music:
+    #   icon: '<img src="/assets/placeholder/social/3845874.svg"/>'
+    #   url: https://
+    # unsplash:
+    #   icon: '<img src="/assets/placeholder/social/3616429.svg"/>'
+    #   url: https://
+    # comments:
+    #   icon: '<img src="/assets/placeholder/social/942ebbf1a4b91.svg"/>'
+    #   url: https://
