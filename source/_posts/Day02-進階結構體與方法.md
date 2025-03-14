@@ -48,7 +48,7 @@ func (r *Room) SetAvailable(available bool) {
 room := Room{Available: false}
 room.SetAvailable(true)
 fmt.Println(room.Available) // 現在是 true
-```
+``` 
 
 </details>
 
