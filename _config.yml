@@ -122,6 +122,3 @@ deploy:
   type: git
   repo: git@github.com:horsekitlin/horsekitlin.github.io.git
   branch: master
-  type: git
-  repo: git@github.com:horsekitlin/horsekitlin.github.io.git
-  branch: gh-pages
